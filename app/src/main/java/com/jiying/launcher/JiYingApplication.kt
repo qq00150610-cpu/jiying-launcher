@@ -36,7 +36,5 @@ class JiYingApplication : Application() {
     companion object {
         lateinit var instance: JiYingApplication
             private set
-
-        fun getInstance(): JiYingApplication = instance
     }
 }
