@@ -217,7 +217,13 @@ class MainActivity : AppCompatActivity() {
     private fun initAppList() {
         appAdapter = AppGridAdapter(installedApps) { appInfo -> launchApp(appInfo) }
         appGridRecyclerView.apply {
-            layoutManager = GridLayoutManager(this@MainActivity, 6)
+            // 根据屏幕宽度自动计算列数
+            val displayMetrics = resources.displayMetrics
+            val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+            val columnWidth = 160 // 每列大约160dp
+            val spanCount = maxOf(3, (screenWidthDp / columnWidth).toInt() - 2)
+            
+            layoutManager = GridLayoutManager(this@MainActivity, spanCount)
             adapter = appAdapter
             setHasFixedSize(true)
         }

@@ -1,57 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 布丁UI风格配色 -->
-    <color name="buding_primary">#2196F3</color>
-    <color name="buding_primary_dark">#1976D2</color>
-    <color name="buding_accent">#FF5722</color>
-    <color name="buding_accent_dark">#E64A19</color>
-    <color name="buding_background">#F5F5F5</color>
+    <!-- 布丁UI风格配色 - 现代深色主题 -->
+    <color name="buding_primary">#00BCD4</color>
+    <color name="buding_primary_dark">#0097A7</color>
+    <color name="buding_accent">#FF9800</color>
+    <color name="buding_accent_dark">#F57C00</color>
+    <color name="buding_background">#1A1A2E</color>
 
     <!-- 氢桌面风格配色 -->
     <color name="hydrogen_primary">#4CAF50</color>
     <color name="hydrogen_primary_dark">#388E3C</color>
     <color name="hydrogen_accent">#03A9F4</color>
     <color name="hydrogen_accent_dark">#0288D1</color>
-    <color name="hydrogen_background">#FAFAFA</color>
+    <color name="hydrogen_background">#0D1117</color>
 
     <!-- 默认主题色 -->
-    <color name="primary_color">#2196F3</color>
-    <color name="primary_dark">#1976D2</color>
-    <color name="accent_color">#FF5722</color>
+    <color name="primary_color">#00BCD4</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="accent_color">#FF9800</color>
 
-    <!-- 背景色 -->
-    <color name="background_primary">#F5F5F5</color>
-    <color name="background_secondary">#EEEEEE</color>
+    <!-- 背景色 - 深色主题 -->
+    <color name="background_primary">#0D1117</color>
+    <color name="background_secondary">#161B22</color>
+    <color name="background_card">#21262D</color>
 
     <!-- 卡片颜色 -->
-    <color name="card_background">#FFFFFF</color>
-    <color name="nav_card_background">#E3F2FD</color>
-    <color name="music_card_background">#FFF3E0</color>
+    <color name="card_background">#1C2128</color>
+    <color name="nav_card_background">#1A3A4A</color>
+    <color name="music_card_background">#2D1F3D</color>
 
     <!-- 导航栏背景 -->
-    <color name="nav_bar_background">#FFFFFF</color>
-    <color name="control_panel_background">#FFFFFF</color>
+    <color name="nav_bar_background">#161B22</color>
+    <color name="control_panel_background">#21262D</color>
 
     <!-- 文字颜色 -->
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="text_hint">#BDBDBD</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8B949E</color>
+    <color name="text_hint">#484F58</color>
 
     <!-- 功能按钮 -->
-    <color name="button_background">#E0E0E0</color>
-    <color name="button_pressed">#BDBDBD</color>
+    <color name="button_background">#30363D</color>
+    <color name="button_pressed">#484F58</color>
+    <color name="button_primary">#00BCD4</color>
+    <color name="button_accent">#FF9800</color>
 
     <!-- 状态颜色 -->
-    <color name="success">#4CAF50</color>
-    <color name="warning">#FFC107</color>
-    <color name="error">#F44336</color>
-    <color name="info">#2196F3</color>
+    <color name="success">#3FB950</color>
+    <color name="warning">#D29922</color>
+    <color name="error">#F85149</color>
+    <color name="info">#58A6FF</color>
 
     <!-- 透明度 -->
-    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_dark">#CC000000</color>
     <color name="overlay_light">#40FFFFFF</color>
 
-    <!-- 主题开关颜色 -->
-    <color name="theme_switch_buding">#FF5722</color>
-    <color name="theme_switch_hydrogen">#4CAF50</color>
+    <!-- 图标颜色 -->
+    <color name="icon_normal">#FFFFFF</color>
+    <color name="icon_selected">#00BCD4</color>
+    <color name="icon_disabled">#484F58</color>
+
+    <!-- 渐变色 -->
+    <color name="gradient_start">#1A1A2E</color>
+    <color name="gradient_end">#16213E</color>
 </resources>
