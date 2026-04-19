@@ -3,6 +3,7 @@ package com.jiying.launcher.ui.main
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -11,39 +12,36 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
 import com.jiying.launcher.R
 
-/**
- * 应用管理页面
- * 显示设备上所有已安装应用，支持分类筛选和搜索
- */
 class AppManagerActivity : AppCompatActivity() {
-
+    
     private lateinit var recyclerView: RecyclerView
-    private lateinit var searchEditText: android.widget.EditText
-    private lateinit var tabAll: TextView
-    private lateinit var tabUser: TextView
-    private lateinit var tabSystem: TextView
-    private lateinit var appCountText: TextView
-    private lateinit var backButton: ImageButton
-    private lateinit var refreshButton: ImageButton
-
+    private lateinit var searchView: SearchView
+    private lateinit var tabLayout: TabLayout
+    private lateinit var appAdapter: AppAdapter
+    
+    private var appList = listOf<AppInfo>()
     private var currentFilter = FILTER_ALL
-    private var appList: List<AppInfo> = emptyList()
-
+    
+    data class AppInfo(
+        val packageName: String,
+        val appName: String,
+        val icon: Drawable,
+        val isSystemApp: Boolean
+    )
+    
     companion object {
-        const val FILTER_ALL = 0
-        const val FILTER_USER = 1
-        const val FILTER_SYSTEM = 2
+        private const val FILTER_ALL = 0
+        private const val FILTER_USER = 1
+        private const val FILTER_SYSTEM = 2
     }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_manager)
@@ -51,36 +49,39 @@ class AppManagerActivity : AppCompatActivity() {
         initViews()
         loadApps()
     }
-
+    
     private fun initViews() {
-        recyclerView = findViewById(R.id.app_recycler_view)
+        recyclerView = findViewById(R.id.app_list)
         recyclerView.layoutManager = GridLayoutManager(this, 4)
         
-        searchEditText = findViewById(R.id.search_edit)
-        searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                filterApps(s.toString())
+        searchView = findViewById(R.id.app_search)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                filterApps(query ?: "")
+                return true
             }
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterApps(newText ?: "")
+                return true
+            }
         })
         
-        tabAll = findViewById(R.id.tab_all)
-        tabUser = findViewById(R.id.tab_user)
-        tabSystem = findViewById(R.id.tab_system)
-        appCountText = findViewById(R.id.app_count)
+        tabLayout = findViewById(R.id.app_tabs)
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> setFilter(FILTER_ALL)
+                    1 -> setFilter(FILTER_USER)
+                    2 -> setFilter(FILTER_SYSTEM)
+                }
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
         
-        tabAll.setOnClickListener { setFilter(FILTER_ALL) }
-        tabUser.setOnClickListener { setFilter(FILTER_USER) }
-        tabSystem.setOnClickListener { setFilter(FILTER_SYSTEM) }
-        
-        backButton = findViewById(R.id.back_button)
-        backButton.setOnClickListener { finish() }
-        
-        refreshButton = findViewById(R.id.refresh_button)
-        refreshButton.setOnClickListener { loadApps() }
-        
-        updateTabStyles()
+        findViewById<ImageButton>(R.id.btn_sort).setOnClickListener {
+            loadApps()
+        }
     }
     
     private fun loadApps() {
@@ -103,17 +104,15 @@ class AppManagerActivity : AppCompatActivity() {
     
     private fun setFilter(filter: Int) {
         currentFilter = filter
-        updateTabStyles()
         updateAppList()
     }
     
-    private fun updateTabStyles() {
-        val selectedColor = resources.getColor(R.color.teal_200, null)
-        val normalColor = resources.getColor(android.R.color.darker_gray, null)
-        
-        tabAll.setTextColor(if (currentFilter == FILTER_ALL) selectedColor else normalColor)
-        tabUser.setTextColor(if (currentFilter == FILTER_USER) selectedColor else normalColor)
-        tabSystem.setTextColor(if (currentFilter == FILTER_SYSTEM) selectedColor else normalColor)
+    private fun filterApps(query: String) {
+        val filtered = appList.filter { 
+            it.appName.contains(query, ignoreCase = true) ||
+            it.packageName.contains(query, ignoreCase = true)
+        }
+        appAdapter.updateList(filtered)
     }
     
     private fun updateAppList() {
@@ -123,54 +122,61 @@ class AppManagerActivity : AppCompatActivity() {
             else -> appList
         }
         
-        // 更新计数
-        appCountText.text = when (currentFilter) {
-            FILTER_USER -> "用户应用(${filtered.size})"
-            FILTER_SYSTEM -> "系统应用(${filtered.size})"
-            else -> "全部应用(${filtered.size})"
+        appAdapter = AppAdapter(filtered) { app ->
+            showAppOptions(app)
         }
-        
-        recyclerView.adapter = AppAdapter(filtered) { app ->
-            // 点击启动应用
-            val intent = packageManager.getLaunchIntentForPackage(app.packageName)
-            intent?.let { startActivity(it) }
+        recyclerView.adapter = appAdapter
+    }
+    
+    private fun showAppOptions(app: AppInfo) {
+        val options = arrayOf("打开应用", "应用详情", "卸载")
+        android.app.AlertDialog.Builder(this)
+            .setTitle(app.appName)
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> openApp(app.packageName)
+                    1 -> openAppDetails(app.packageName)
+                    2 -> uninstallApp(app.packageName)
+                }
+            }
+            .show()
+    }
+    
+    private fun openApp(packageName: String) {
+        try {
+            val intent = packageManager.getLaunchIntentForPackage(packageName)
+            if (intent != null) {
+                startActivity(intent)
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法打开应用", Toast.LENGTH_SHORT).show()
         }
     }
     
-    private fun filterApps(query: String) {
-        if (query.isEmpty()) {
-            updateAppList()
-            return
-        }
-        
-        val baseFiltered = when (currentFilter) {
-            FILTER_USER -> appList.filter { !it.isSystemApp }
-            FILTER_SYSTEM -> appList.filter { it.isSystemApp }
-            else -> appList
-        }
-        
-        val filtered = baseFiltered.filter { 
-            it.appName.contains(query, ignoreCase = true) 
-        }
-        
-        appCountText.text = "搜索结果(${filtered.size})"
-        
-        recyclerView.adapter = AppAdapter(filtered) { app ->
-            val intent = packageManager.getLaunchIntentForPackage(app.packageName)
-            intent?.let { startActivity(it) }
+    private fun openAppDetails(packageName: String) {
+        try {
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+            intent.data = Uri.parse("package:$packageName")
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法打开应用详情", Toast.LENGTH_SHORT).show()
         }
     }
     
-    data class AppInfo(
-        val packageName: String,
-        val appName: String,
-        val icon: android.graphics.drawable.Drawable,
-        val isSystemApp: Boolean
-    )
+    private fun uninstallApp(packageName: String) {
+        try {
+            val intent = Intent(Intent.ACTION_DELETE)
+            intent.data = Uri.parse("package:$packageName")
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法卸载应用", Toast.LENGTH_SHORT).show()
+        }
+    }
     
+    // 应用适配器
     inner class AppAdapter(
-        private val apps: List<AppInfo>,
-        private val onItemClick: (AppInfo) -> Unit
+        private var apps: List<AppInfo>,
+        private val onClick: (AppInfo) -> Unit
     ) : RecyclerView.Adapter<AppAdapter.ViewHolder>() {
         
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -180,7 +186,7 @@ class AppManagerActivity : AppCompatActivity() {
         
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_app_manager, parent, false)
+                .inflate(R.layout.item_app_grid, parent, false)
             return ViewHolder(view)
         }
         
@@ -188,38 +194,14 @@ class AppManagerActivity : AppCompatActivity() {
             val app = apps[position]
             holder.icon.setImageDrawable(app.icon)
             holder.name.text = app.appName
-            holder.itemView.setOnClickListener { onItemClick(app) }
-            
-            holder.itemView.setOnLongClickListener {
-                showAppOptions(app)
-                true
-            }
+            holder.itemView.setOnClickListener { onClick(app) }
         }
         
         override fun getItemCount() = apps.size
         
-        private fun showAppOptions(app: AppInfo) {
-            AlertDialog.Builder(this@AppManagerActivity)
-                .setTitle(app.appName)
-                .setItems(arrayOf("打开应用", "应用详情", "卸载")) { _, which ->
-                    when (which) {
-                        0 -> {
-                            val intent = packageManager.getLaunchIntentForPackage(app.packageName)
-                            intent?.let { startActivity(it) }
-                        }
-                        1 -> {
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            intent.data = Uri.parse("package:${app.packageName}")
-                            startActivity(intent)
-                        }
-                        2 -> {
-                            val intent = Intent(Intent.ACTION_DELETE)
-                            intent.data = Uri.parse("package:${app.packageName}")
-                            startActivity(intent)
-                        }
-                    }
-                }
-                .show()
+        fun updateList(newApps: List<AppInfo>) {
+            apps = newApps
+            notifyDataSetChanged()
         }
     }
 }
