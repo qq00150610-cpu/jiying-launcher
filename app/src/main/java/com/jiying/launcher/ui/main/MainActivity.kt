@@ -14,6 +14,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -71,9 +72,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var controlCenterLayout: RelativeLayout
     private lateinit var brightnessSlider: SeekBar
     private lateinit var volumeSlider: SeekBar
-    private lateinit var wifiSwitch: Switch
-    private lateinit var bluetoothSwitch: Switch
-    private lateinit var nightModeSwitch: Switch
+    private lateinit var wifiSwitch: SwitchCompat
+    private lateinit var bluetoothSwitch: SwitchCompat
+    private lateinit var nightModeSwitch: SwitchCompat
     private lateinit var closeControlCenter: ImageButton
     
     // 数据

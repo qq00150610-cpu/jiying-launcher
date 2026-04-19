@@ -25,12 +25,13 @@ class JiYingApplication : Application() {
     }
 
     private fun startDesktopService() {
-        val serviceIntent = Intent(this, DesktopService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent)
-        } else {
-            startService(serviceIntent)
-        }
+        // 暂不启动服务，避免前台服务通知问题
+        // val serviceIntent = Intent(this, DesktopService::class.java)
+        // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        //     startForegroundService(serviceIntent)
+        // } else {
+        //     startService(serviceIntent)
+        // }
     }
 
     companion object {
