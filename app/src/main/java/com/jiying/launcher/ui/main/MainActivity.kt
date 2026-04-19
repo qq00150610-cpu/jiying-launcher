@@ -463,7 +463,6 @@ class MainActivity : AppCompatActivity() {
             }.setNegativeButton("取消", null).show()
     }
 
-    private fun showControlCenter() = showControlCenter()
     private fun toggleQuickPanel() {
         quickPanelCard.visibility = if (quickPanelCard.visibility == View.VISIBLE) View.GONE else View.VISIBLE
     }
