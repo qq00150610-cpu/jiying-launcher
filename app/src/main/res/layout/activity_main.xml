@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient">
+    android:layout_height="match_parent">
 
     <!-- 壁纸背景 -->
     <ImageView
@@ -12,554 +11,706 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:alpha="0.3" />
+        android:src="@drawable/bg_wallpaper_default" />
 
-    <!-- 主内容区域 -->
+    <!-- 顶部状态栏 -->
     <LinearLayout
+        android:id="@+id/status_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
         android:orientation="horizontal"
-        android:padding="24dp">
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp">
 
-        <!-- 左侧区域：快捷插件 + 智能助理 -->
+        <!-- 左侧：头像、音量、通知 -->
         <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <!-- 智能助理按钮 -->
-            <ImageButton
-                android:id="@+id/assistant_button"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_circle_gradient"
-                android:src="@drawable/ic_mic"
-                android:tint="@color/text_primary"
-                android:scaleType="centerInside"
-                android:padding="16dp"
-                android:contentDescription="智能助理"
-                android:elevation="8dp" />
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@mipmap/ic_launcher_round" />
 
-            <!-- 时间日期显示 -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="24dp">
+            <ImageView
+                android:id="@+id/volume_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/ic_volume"
+                android:tint="#FFFFFF" />
 
-                <TextView
-                    android:id="@+id/date_time_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="13:02"
-                    android:textSize="48sp"
-                    android:textColor="@color/text_primary"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-light" />
-
-                <TextView
-                    android:id="@+id/date_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2026年04月19日 周六"
-                    android:textSize="16sp"
-                    android:textColor="@color/text_secondary" />
-            </LinearLayout>
-
-            <!-- 快捷插件卡片 -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/quick_panel_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/card_background"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- 导航插件 -->
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/navigation_card"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginBottom="12dp"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:cardBackgroundColor="@color/nav_card_background"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?android:attr/selectableItemBackground">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:src="@drawable/ic_navigation"
-                                android:tint="@color/primary_color"
-                                android:scaleType="centerInside" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="16dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="导航"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/text_primary"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/nav_app_name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="高德地图"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/text_secondary" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_arrow_right"
-                                android:tint="@color/text_hint" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <!-- 音乐插件 -->
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/music_card"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:cardBackgroundColor="@color/music_card_background">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical">
-
-                                <ImageView
-                                    android:layout_width="48dp"
-                                    android:layout_height="48dp"
-                                    android:src="@drawable/ic_music"
-                                    android:tint="@color/accent_color"
-                                    android:scaleType="centerInside" />
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:layout_marginStart="16dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/music_title"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="暂无播放"
-                                        android:textSize="16sp"
-                                        android:textColor="@color/text_primary"
-                                        android:textStyle="bold"
-                                        android:maxLines="1"
-                                        android:ellipsize="end" />
-
-                                    <TextView
-                                        android:id="@+id/music_artist"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="点击播放"
-                                        android:textSize="14sp"
-                                        android:textColor="@color/text_secondary"
-                                        android:maxLines="1"
-                                        android:ellipsize="end" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <!-- 音乐控制按钮 -->
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <ImageButton
-                                    android:id="@+id/music_prev"
-                                    android:layout_width="44dp"
-                                    android:layout_height="44dp"
-                                    android:background="@drawable/bg_circle_button_small"
-                                    android:src="@drawable/ic_skip_previous"
-                                    android:tint="@color/text_primary"
-                                    android:scaleType="centerInside"
-                                    android:padding="10dp"
-                                    android:contentDescription="上一首" />
-
-                                <ImageButton
-                                    android:id="@+id/music_play_pause"
-                                    android:layout_width="56dp"
-                                    android:layout_height="56dp"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:background="@drawable/bg_circle_gradient"
-                                    android:src="@drawable/ic_play"
-                                    android:tint="@color/text_primary"
-                                    android:scaleType="centerInside"
-                                    android:padding="14dp"
-                                    android:contentDescription="播放/暂停"
-                                    android:elevation="4dp" />
-
-                                <ImageButton
-                                    android:id="@+id/music_next"
-                                    android:layout_width="44dp"
-                                    android:layout_height="44dp"
-                                    android:background="@drawable/bg_circle_button_small"
-                                    android:src="@drawable/ic_skip_next"
-                                    android:tint="@color/text_primary"
-                                    android:scaleType="centerInside"
-                                    android:padding="10dp"
-                                    android:contentDescription="下一首" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/notification_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/ic_bell"
+                android:tint="#FFFFFF" />
         </LinearLayout>
 
-        <!-- 右侧区域：应用网格 -->
-        <LinearLayout
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 右侧：日期时间 -->
+        <TextView
+            android:id="@+id/date_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4月19日 星期日 19:12"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- 中央悬浮卡片区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_app_bar"
+        android:layout_below="@id/status_bar"
+        android:layout_marginVertical="12dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <!-- 左侧：地图导航卡片 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/nav_card"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginStart="24dp"
-            android:orientation="vertical">
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#1E2832">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 关闭按钮 -->
+                <ImageView
+                    android:id="@+id/nav_close"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_close"
+                    android:tint="#FFFFFF"
+                    android:alpha="0.8" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- 高德地图图标 -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_amap_logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="连接真实世界"
+                        android:textSize="20sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:layout_marginTop="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="让出行更美好"
+                        android:textSize="13sp"
+                        android:textColor="#AAAAAA"
+                        android:layout_marginTop="4dp" />
+
+                    <!-- 打开地图按钮 -->
+                    <LinearLayout
+                        android:id="@+id/open_map_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_btn_open_map"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_paper_plane"
+                            android:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="打开地图"
+                            android:textSize="13sp"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginStart="6dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 导航箭头 -->
+                <ImageView
+                    android:id="@+id/nav_arrow"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/ic_nav_arrow_glow" />
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 右侧：音乐播放卡片 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/music_card"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="#401E2832"
+            app:cardBackgroundColor="#00000000">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#401E2832">
+
+                <!-- 关闭按钮 -->
+                <ImageView
+                    android:id="@+id/music_close"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/ic_close"
+                    android:tint="#FFFFFF"
+                    android:alpha="0.8" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- 音乐头部 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_waveform"
+                            android:tint="#00D9A5" />
+
+                        <TextView
+                            android:id="@+id/music_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:text="别让爱凋落 (My Lo…"
+                            android:textSize="14sp"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+
+                    <!-- 歌曲信息 -->
+                    <TextView
+                        android:id="@+id/music_artist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="周林枫"
+                        android:textSize="12sp"
+                        android:textColor="#AAAAAA"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="韦琪"
+                        android:textSize="11sp"
+                        android:textColor="#666666"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="万象星云"
+                        android:textSize="11sp"
+                        android:textColor="#666666"
+                        android:layout_marginTop="2dp" />
+
+                    <!-- 歌词显示区 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginVertical="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My love"
+                            android:textSize="14sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/lyric_highlight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="请别让爱凋落"
+                            android:textSize="16sp"
+                            android:textColor="#00D9A5"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="别叫醒我的梦"
+                            android:textSize="14sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="能不能继续纠缠我"
+                            android:textSize="14sp"
+                            android:textColor="#666666"
+                            android:layout_marginTop="6dp" />
+                    </LinearLayout>
+
+                    <!-- 播放控制 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- 酷我音乐图标 -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_kuwo_logo" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:id="@+id/music_prev"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@null"
+                            android:src="@drawable/ic_skip_previous"
+                            android:tint="#FFFFFF"
+                            android:padding="6dp" />
+
+                        <ImageButton
+                            android:id="@+id/music_play_pause"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:background="@drawable/bg_circle_button_white"
+                            android:src="@drawable/ic_pause"
+                            android:tint="#1E2832"
+                            android:padding="10dp" />
+
+                        <ImageButton
+                            android:id="@+id/music_next"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@null"
+                            android:src="@drawable/ic_skip_next"
+                            android:tint="#FFFFFF"
+                            android:padding="6dp" />
+
+                        <ImageButton
+                            android:id="@+id/music_lock"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="4dp"
+                            android:background="@null"
+                            android:src="@drawable/ic_lock"
+                            android:tint="#666666"
+                            android:padding="6dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- 底部应用栏 -->
+    <HorizontalScrollView
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_above="@id/bottom_function_bar"
+        android:scrollbars="none"
+        android:paddingHorizontal="12dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/app_icons_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 我的应用 -->
+            <LinearLayout
+                android:id="@+id/my_apps"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_rounded"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_apps_grid" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的应用"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 系统设置 -->
+            <LinearLayout
+                android:id="@+id/system_settings"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_rounded"
+                android:layout_marginEnd="10dp">
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_settings" />
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="top|end"
+                        android:background="@drawable/bg_red_badge" />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="系统设置"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 主题中心 -->
+            <LinearLayout
+                android:id="@+id/theme_center"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_gradient_purple"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_theme_flower" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="主题中心"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 迷你音乐播放器 -->
+            <LinearLayout
+                android:id="@+id/mini_music_player"
+                android:layout_width="120dp"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_mini_player"
+                android:padding="10dp"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_vinyl_record" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+                    <TextView
+                        android:id="@+id/mini_music_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请别让爱凋落"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 酷我音乐 -->
+            <LinearLayout
+                android:id="@+id/kuwo_music"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_yellow"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_kuwo" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="酷我音乐"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 轻应用 -->
+            <LinearLayout
+                android:id="@+id/light_app"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_green"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_light_app" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="轻应用"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 应用商店 -->
+            <LinearLayout
+                android:id="@+id/app_store"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_blue_gradient"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_app_store" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="应用商店"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 车主服务 -->
+            <LinearLayout
+                android:id="@+id/car_service"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_blue"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_car" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="车主服务"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 返回桌面 -->
+            <LinearLayout
+                android:id="@+id/back_to_launcher"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_cyan"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_back_desktop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="返回桌面"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <!-- 添加按钮 -->
+            <LinearLayout
+                android:id="@+id/add_app"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/bg_app_icon_dashed"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_add_circle"
+                    android:tint="#666666" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- 底部功能栏 -->
+    <LinearLayout
+        android:id="@+id/bottom_function_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#80000000"
+        android:paddingHorizontal="20dp">
+
+        <!-- 主页 -->
+        <ImageView
+            android:id="@+id/home_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_home"
+            android:tint="#FFFFFF" />
+
+        <!-- 导航 -->
+        <ImageView
+            android:id="@+id/nav_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_navigation"
+            android:tint="#888888" />
+
+        <!-- 旋转 -->
+        <ImageView
+            android:id="@+id/rotate_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_screen_rotation"
+            android:tint="#888888" />
+
+        <!-- 锁定 -->
+        <ImageView
+            android:id="@+id/lock_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_lock"
+            android:tint="#888888" />
+
+        <!-- 指南针 -->
+        <ImageView
+            android:id="@+id/compass_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_explore"
+            android:tint="#888888" />
+
+        <!-- 音量 -->
+        <ImageView
+            android:id="@+id/volume_button"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_volume"
+            android:tint="#888888" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 天气信息 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_cloud" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="常用应用"
-                android:textSize="18sp"
-                android:textColor="@color/text_secondary"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
+                android:text="19℃"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="6dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/app_grid_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:overScrollMode="never" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昆山市"
+                android:textSize="13sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginStart="6dp" />
         </LinearLayout>
     </LinearLayout>
-
-    <!-- 底部导航栏 -->
-    <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@drawable/bg_nav_bar"
-        android:paddingHorizontal="32dp">
-
-        <ImageButton
-            android:id="@+id/home_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button_selected"
-            android:src="@drawable/ic_home"
-            android:tint="@color/text_primary"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="首页" />
-
-        <ImageButton
-            android:id="@+id/wallpaper_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button"
-            android:src="@drawable/ic_wallpaper"
-            android:tint="@color/text_secondary"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="壁纸" />
-
-        <ImageButton
-            android:id="@+id/apps_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button"
-            android:src="@drawable/ic_apps"
-            android:tint="@color/text_secondary"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="应用" />
-
-        <ImageButton
-            android:id="@+id/service_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button"
-            android:src="@drawable/ic_service"
-            android:tint="@color/text_secondary"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="服务" />
-
-        <ImageButton
-            android:id="@+id/settings_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button"
-            android:src="@drawable/ic_settings"
-            android:tint="@color/text_secondary"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="设置" />
-
-        <ImageButton
-            android:id="@+id/theme_switch_button"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="12dp"
-            android:background="@drawable/bg_nav_button"
-            android:src="@drawable/ic_theme"
-            android:tint="@color/accent_color"
-            android:scaleType="centerInside"
-            android:padding="12dp"
-            android:contentDescription="切换主题" />
-    </LinearLayout>
-
-    <!-- 控制中心遮罩层 -->
-    <RelativeLayout
-        android:id="@+id/control_center_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/overlay_dark"
-        android:visibility="gone"
-        android:clickable="true"
-        android:focusable="true">
-
-        <!-- 控制中心面板 -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/control_panel_card"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="24dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/control_panel_background">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <!-- 标题栏 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="24dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="控制中心"
-                        android:textSize="22sp"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold" />
-
-                    <ImageButton
-                        android:id="@+id/close_control_center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/bg_circle_button_small"
-                        android:src="@drawable/ic_close"
-                        android:tint="@color/text_primary"
-                        android:scaleType="centerInside"
-                        android:padding="10dp"
-                        android:contentDescription="关闭" />
-                </LinearLayout>
-
-                <!-- 亮度调节 -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="屏幕亮度"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_secondary"
-                    android:layout_marginBottom="8dp" />
-
-                <SeekBar
-                    android:id="@+id/brightness_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="255"
-                    android:progress="128"
-                    android:progressTint="@color/primary_color"
-                    android:thumbTint="@color/primary_color"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- 音量调节 -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="媒体音量"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_secondary"
-                    android:layout_marginBottom="8dp" />
-
-                <SeekBar
-                    android:id="@+id/volume_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="15"
-                    android:progress="8"
-                    android:progressTint="@color/accent_color"
-                    android:thumbTint="@color/accent_color"
-                    android:layout_marginBottom="24dp" />
-
-                <!-- 快捷开关 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <!-- WiFi -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_wifi"
-                            android:tint="@color/primary_color" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="WiFi"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/wifi_switch"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:thumbTint="@color/text_primary"
-                            app:trackTint="@color/text_hint" />
-                    </LinearLayout>
-
-                    <!-- 蓝牙 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_bluetooth"
-                            android:tint="@color/primary_color" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="蓝牙"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/bluetooth_switch"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:thumbTint="@color/text_primary"
-                            app:trackTint="@color/text_hint" />
-                    </LinearLayout>
-
-                    <!-- 夜间模式 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_night_mode"
-                            android:tint="@color/accent_color" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="夜间模式"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_primary"
-                            android:layout_marginTop="8dp" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/night_mode_switch"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:thumbTint="@color/text_primary"
-                            app:trackTint="@color/text_hint" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </RelativeLayout>
-
 </RelativeLayout>
