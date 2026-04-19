@@ -14,8 +14,8 @@ class AppsCenterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideSystemUI()
         setContentView(R.layout.activity_apps_center)
+        hideSystemUI()
     }
 
     private fun hideSystemUI() {

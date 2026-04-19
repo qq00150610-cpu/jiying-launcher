@@ -14,8 +14,8 @@ class AssistantActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideSystemUI()
         setContentView(R.layout.activity_assistant)
+        hideSystemUI()
     }
 
     private fun hideSystemUI() {

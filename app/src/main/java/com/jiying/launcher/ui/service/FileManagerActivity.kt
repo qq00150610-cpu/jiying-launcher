@@ -14,8 +14,8 @@ class FileManagerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideSystemUI()
         setContentView(R.layout.activity_file_manager)
+        hideSystemUI()
     }
 
     private fun hideSystemUI() {

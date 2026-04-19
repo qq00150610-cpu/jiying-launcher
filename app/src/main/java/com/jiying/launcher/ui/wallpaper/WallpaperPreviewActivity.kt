@@ -15,8 +15,8 @@ class WallpaperPreviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideSystemUI()
         setContentView(R.layout.activity_wallpaper_preview)
+        hideSystemUI()
     }
 
     private fun hideSystemUI() {

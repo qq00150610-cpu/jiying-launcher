@@ -42,7 +42,7 @@
             android:name=".ui.main.MainActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:configChanges="orientation|keyboard|keyboardHidden|screenSize|smallestScreenSize|screenLayout"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.JiYingLauncher">
@@ -57,31 +57,31 @@
         <!-- 壁纸预览Activity -->
         <activity
             android:name=".ui.wallpaper.WallpaperPreviewActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- AI助理Activity -->
         <activity
             android:name=".ui.assistant.AssistantActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- 控制中心 -->
         <activity
             android:name=".ui.control.ControlCenterActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- 轻应用中心 -->
         <activity
             android:name=".ui.apps.AppsCenterActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- 文件管理 -->
         <activity
             android:name=".ui.service.FileManagerActivity"
-            android:screenOrientation="landscape"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- 壁纸服务 -->
