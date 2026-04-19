@@ -89,16 +89,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ThemeManager.applyTheme()
-        hideSystemUI()
         setContentView(R.layout.activity_main)
-        initViews()
-        initControlCenter()
-        startTimeUpdate()
-        registerReceivers()
-        loadInstalledApps()
-        audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        loadWallpaper()
+        try {
+            audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            ThemeManager.applyTheme()
+            hideSystemUI()
+            initViews()
+            initControlCenter()
+            startTimeUpdate()
+            registerReceivers()
+            loadInstalledApps()
+            loadWallpaper()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "启动错误: ${e.message}", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun hideSystemUI() {
@@ -157,19 +162,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun applyThemeStyle() {
-        when (ThemeManager.getCurrentTheme()) {
-            ThemeManager.THEME_BUDING -> {
-                val style = ThemeManager.getBudingStyle()
-                quickPanelCard.cardElevation = style.cardElevation
-                navigationCard.cardElevation = style.cardElevation
-                musicCard.cardElevation = style.cardElevation
+        try {
+            when (ThemeManager.getCurrentTheme()) {
+                ThemeManager.THEME_BUDING -> {
+                    val style = ThemeManager.getBudingStyle()
+                    quickPanelCard.cardElevation = style.cardElevation
+                    navigationCard.cardElevation = style.cardElevation
+                    musicCard.cardElevation = style.cardElevation
+                }
+                ThemeManager.THEME_HYDROGEN -> {
+                    val style = ThemeManager.getHydrogenStyle()
+                    quickPanelCard.cardElevation = style.cardElevation
+                    navigationCard.cardElevation = style.cardElevation
+                    musicCard.cardElevation = style.cardElevation
+                }
             }
-            ThemeManager.THEME_HYDROGEN -> {
-                val style = ThemeManager.getHydrogenStyle()
-                quickPanelCard.cardElevation = style.cardElevation
-                navigationCard.cardElevation = style.cardElevation
-                musicCard.cardElevation = style.cardElevation
-            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
