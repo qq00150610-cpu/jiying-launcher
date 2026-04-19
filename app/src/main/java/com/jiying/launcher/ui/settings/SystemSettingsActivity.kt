@@ -3,103 +3,112 @@ package com.jiying.launcher.ui.settings
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.view.View
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SwitchCompat
-import androidx.cardview.widget.CardView
 import com.jiying.launcher.R
 
-/**
- * 系统设置Activity
- */
 class SystemSettingsActivity : AppCompatActivity() {
-
-    private lateinit var homeButtonSwitch: SwitchCompat
-    private lateinit var statusBarSwitch: SwitchCompat
-    private lateinit var dockBarSwitch: SwitchCompat
-    private lateinit var gestureSwitch: SwitchCompat
-    private lateinit var notificationSwitch: SwitchCompat
-    private lateinit var autoStartSwitch: SwitchCompat
+    
+    private lateinit var floatingBallSwitch: Switch
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_system_settings)
         
-        try {
-            initViews()
-            loadSettings()
-            setupListeners()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        initViews()
     }
-
+    
     private fun initViews() {
-        try {
-            homeButtonSwitch = findViewById(R.id.switch_home_button)
-            statusBarSwitch = findViewById(R.id.switch_status_bar)
-            dockBarSwitch = findViewById(R.id.switch_dock_bar)
-            gestureSwitch = findViewById(R.id.switch_gesture)
-            notificationSwitch = findViewById(R.id.switch_notification)
-            autoStartSwitch = findViewById(R.id.switch_auto_start)
-        } catch (e: Exception) {
-            e.printStackTrace()
+        // 返回按钮
+        findViewById<ImageButton>(R.id.back_button).setOnClickListener {
+            finish()
+        }
+        
+        // 悬浮球开关
+        floatingBallSwitch = findViewById(R.id.floating_ball_switch)
+        loadSettings()
+        
+        floatingBallSwitch.setOnCheckedChangeListener { _, isChecked ->
+            saveFloatingBallSetting(isChecked)
+            Toast.makeText(this, "悬浮球已${if (isChecked) "开启" else "关闭"}", Toast.LENGTH_SHORT).show()
+        }
+        
+        // WiFi设置
+        findViewById<LinearLayout>(R.id.wifi_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+        }
+        
+        // 蓝牙设置
+        findViewById<LinearLayout>(R.id.bluetooth_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+        }
+        
+        // 显示设置
+        findViewById<LinearLayout>(R.id.display_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_DISPLAY_SETTINGS))
+        }
+        
+        // 声音设置
+        findViewById<LinearLayout>(R.id.sound_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_SOUND_SETTINGS))
+        }
+        
+        // 应用管理
+        findViewById<LinearLayout>(R.id.app_management).setOnClickListener {
+            startActivity(Intent(this, com.jiying.launcher.ui.main.AppManagerActivity::class.java))
+        }
+        
+        // 存储设置
+        findViewById<LinearLayout>(R.id.storage_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS))
+        }
+        
+        // 位置设置
+        findViewById<LinearLayout>(R.id.location_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+        }
+        
+        // 文件管理
+        findViewById<LinearLayout>(R.id.file_management).setOnClickListener {
+            openFileManager()
+        }
+        
+        // 所有设置
+        findViewById<LinearLayout>(R.id.all_settings).setOnClickListener {
+            startActivity(Intent(Settings.ACTION_SETTINGS))
         }
     }
-
+    
     private fun loadSettings() {
-        try {
-            val prefs = getSharedPreferences("system_settings", MODE_PRIVATE)
-            homeButtonSwitch.isChecked = prefs.getBoolean("home_button", true)
-            statusBarSwitch.isChecked = prefs.getBoolean("status_bar", true)
-            dockBarSwitch.isChecked = prefs.getBoolean("dock_bar", true)
-            gestureSwitch.isChecked = prefs.getBoolean("gesture", false)
-            notificationSwitch.isChecked = prefs.getBoolean("notification", true)
-            autoStartSwitch.isChecked = prefs.getBoolean("auto_start", false)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        val prefs = getSharedPreferences("system_settings", MODE_PRIVATE)
+        floatingBallSwitch.isChecked = prefs.getBoolean("floating_ball", false)
     }
-
-    private fun setupListeners() {
-        try {
-            val prefs = getSharedPreferences("system_settings", MODE_PRIVATE)
-            
-            homeButtonSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("home_button", isChecked).apply()
-                Toast.makeText(this, "Home键导航 ${if (isChecked) "开启" else "关闭"}", Toast.LENGTH_SHORT).show()
-            }
-            
-            statusBarSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("status_bar", isChecked).apply()
-                Toast.makeText(this, "状态栏 ${if (isChecked) "显示" else "隐藏"}", Toast.LENGTH_SHORT).show()
-            }
-            
-            dockBarSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("dock_bar", isChecked).apply()
-            }
-            
-            gestureSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("gesture", isChecked).apply()
-                if (isChecked) {
-                    Toast.makeText(this, "请授予手势操作权限", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+    
+    private fun saveFloatingBallSetting(enabled: Boolean) {
+        val prefs = getSharedPreferences("system_settings", MODE_PRIVATE)
+        prefs.edit().putBoolean("floating_ball", enabled).apply()
+    }
+    
+    private fun openFileManager() {
+        val fileManagers = listOf(
+            "com.android.filemanager",
+            "com.huawei.hidisk",
+            "com.mi.android.globalFileexplorer",
+            "com.coloros.files"
+        )
+        for (pkg in fileManagers) {
+            try {
+                val intent = packageManager.getLaunchIntentForPackage(pkg)
+                if (intent != null) {
+                    startActivity(intent)
+                    return
                 }
-            }
-            
-            notificationSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("notification", isChecked).apply()
-                if (isChecked) {
-                    startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
-                }
-            }
-            
-            autoStartSwitch.setOnCheckedChangeListener { _, isChecked ->
-                prefs.edit().putBoolean("auto_start", isChecked).apply()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+            } catch (e: Exception) { /* continue */ }
         }
+        // 如果没有文件管理器，打开存储设置
+        startActivity(Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS))
     }
 }

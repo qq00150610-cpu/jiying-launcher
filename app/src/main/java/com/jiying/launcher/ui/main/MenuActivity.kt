@@ -200,7 +200,8 @@ class MenuActivity : AppCompatActivity() {
 
     private fun openUsbSettings() {
         try {
-            val intent = Intent(Settings.ACTION_USB_SETTINGS)
+            @Suppress("DEPRECATION")
+            val intent = Intent("android.settings.USB_SETTINGS")
             startActivity(intent)
         } catch (e: Exception) {
             startActivity(Intent(Settings.ACTION_DEVICE_INFO_SETTINGS))

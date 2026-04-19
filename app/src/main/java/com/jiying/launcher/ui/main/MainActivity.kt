@@ -19,7 +19,7 @@ import androidx.cardview.widget.CardView
 import com.jiying.launcher.R
 import com.jiying.launcher.ui.main.AppManagerActivity
 import com.jiying.launcher.ui.main.MenuActivity
-import com.jiying.launcher.ui.main.SystemSettingsActivity
+import com.jiying.launcher.ui.settings.SystemSettingsActivity
 import com.jiying.launcher.util.ThemeManager
 import java.text.SimpleDateFormat
 import java.util.*
