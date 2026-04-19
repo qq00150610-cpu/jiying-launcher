@@ -222,9 +222,7 @@ class MainActivity : AppCompatActivity() {
         compassButton.setOnClickListener { openCompass() }
         
         // 添加应用按钮
-        addAppBtn.setOnClickListener { 
-            startActivityForResult(Intent(this, CustomAppActivity::class.java), REQUEST_CUSTOM_APP)
-        }
+        addAppBtn.setOnClickListener { showAddAppDialog() }
         
         // 系统设置按钮 -> SystemSettingsActivity
         systemSettingsBtn.setOnClickListener { 
