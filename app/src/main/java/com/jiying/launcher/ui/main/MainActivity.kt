@@ -375,18 +375,21 @@ class MainActivity : AppCompatActivity() {
     private fun toggleNightMode(enable: Boolean) {
         if (enable) {
             ThemeManager.setTheme(ThemeManager.THEME_HYDROGEN)
-            Toast.makeText(this, "已切换到氢桌面风格", Toast.LENGTH_SHORT).show()
         } else {
             ThemeManager.setTheme(ThemeManager.THEME_BUDING)
-            Toast.makeText(this, "已切换到布丁UI风格", Toast.LENGTH_SHORT).show()
         }
+        // 使用淡入淡出动画避免闪屏
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         recreate()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun switchTheme() {
         ThemeManager.toggleTheme()
-        Toast.makeText(this, if (ThemeManager.getCurrentTheme() == ThemeManager.THEME_HYDROGEN) "已切换到氢桌面风格" else "已切换到布丁UI风格", Toast.LENGTH_SHORT).show()
+        // 使用淡入淡出动画避免闪屏
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         recreate()
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun startTimeUpdate() {
