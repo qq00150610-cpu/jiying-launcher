@@ -169,6 +169,22 @@
         android:contentDescription="播放列表"
         app:tint="#FFFFFF" />
 
+    <!-- 选择音乐应用按钮 -->
+    <Button
+        android:id="@+id/btn_select_app"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/btn_list"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:text="选择音乐应用"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:paddingHorizontal="12dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp" />
+
     <!-- 当前播放卡片 -->
     <androidx.cardview.widget.CardView
         android:id="@+id/now_playing_card"

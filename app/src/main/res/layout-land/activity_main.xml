@@ -408,6 +408,17 @@
             android:src="@drawable/ic_navigation"
             android:tint="@color/text_primary" />
 
+        <!-- 画中画导航按钮 -->
+        <ImageView
+            android:id="@+id/floating_map_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_picture_in_picture"
+            android:tint="#00D9FF"
+            android:contentDescription="画中画导航" />
+
         <ImageView
             android:id="@+id/rotate_button"
             android:layout_width="32dp"
@@ -701,7 +712,6 @@
 
     <!-- 控制中心覆盖层 -->
     <include layout="@layout/layout_control_center"
-        android:id="@+id/control_center_layout"
         android:visibility="gone" />
 
 </RelativeLayout>

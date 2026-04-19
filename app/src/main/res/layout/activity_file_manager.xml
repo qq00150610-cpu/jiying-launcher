@@ -84,8 +84,60 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/file_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
         android:paddingBottom="16dp" />
+
+    <!-- 底部操作栏（多选模式显示） -->
+    <LinearLayout
+        android:id="@+id/bottom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/surface_dark"
+        android:visibility="gone"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/selected_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="已选择 0 个文件"
+            android:textSize="14sp"
+            android:textColor="@color/text_primary" />
+
+        <Button
+            android:id="@+id/btn_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="复制"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/bg_btn_secondary"
+            android:paddingHorizontal="16dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_move"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="移动"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/bg_btn_secondary"
+            android:paddingHorizontal="16dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="删除"
+            android:textColor="#FF5252"
+            android:background="@drawable/bg_btn_outline"
+            android:paddingHorizontal="16dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

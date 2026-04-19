@@ -53,6 +53,11 @@ class FileManagerActivity : AppCompatActivity() {
     private lateinit var selectButton: ImageButton
     private lateinit var emptyView: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var bottomActionBar: LinearLayout
+    private lateinit var selectedCount: TextView
+    private lateinit var btnCopy: Button
+    private lateinit var btnMove: Button
+    private lateinit var btnDelete: Button
     
     private lateinit var fileAdapter: FileListAdapter
     private var currentPath: String = Environment.getExternalStorageDirectory().absolutePath
@@ -110,12 +115,19 @@ class FileManagerActivity : AppCompatActivity() {
     private fun initViews() {
         currentPathText = findViewById(R.id.current_path)
         fileListRecycler = findViewById(R.id.file_list)
-        backButton = findViewById(R.id.btn_back)
+        backButton = findViewById(R.id.back_button)
         homeButton = findViewById(R.id.btn_home)
         sortButton = findViewById(R.id.btn_sort)
         selectButton = findViewById(R.id.btn_select)
         emptyView = findViewById(R.id.empty_view)
         progressBar = findViewById(R.id.progress_bar)
+        
+        // 底部操作栏
+        bottomActionBar = findViewById(R.id.bottom_action_bar)
+        selectedCount = findViewById(R.id.selected_count)
+        btnCopy = findViewById(R.id.btn_copy)
+        btnMove = findViewById(R.id.btn_move)
+        btnDelete = findViewById(R.id.btn_delete)
         
         fileAdapter = FileListAdapter(fileList) { item, position ->
             onFileClicked(item, position)
@@ -128,6 +140,11 @@ class FileManagerActivity : AppCompatActivity() {
         homeButton.setOnClickListener { navigateToHome() }
         sortButton.setOnClickListener { showSortDialog() }
         selectButton.setOnClickListener { toggleSelectionMode() }
+        
+        // 底部操作栏按钮
+        btnCopy.setOnClickListener { copySelectedFiles() }
+        btnMove.setOnClickListener { moveSelectedFiles() }
+        btnDelete.setOnClickListener { deleteSelectedFiles() }
         
         currentPathText.text = currentPath
     }
@@ -382,9 +399,20 @@ class FileManagerActivity : AppCompatActivity() {
         isSelectionMode = !isSelectionMode
         if (!isSelectionMode) {
             selectedFiles.clear()
+            bottomActionBar.visibility = View.GONE
+        } else {
+            bottomActionBar.visibility = View.VISIBLE
         }
         fileAdapter.setSelectionMode(isSelectionMode)
         fileAdapter.updateSelectedFiles(selectedFiles)
+        updateSelectionUI()
+    }
+    
+    private fun updateSelectionUI() {
+        selectedCount.text = "已选择 ${selectedFiles.size} 个文件"
+        btnCopy.isEnabled = selectedFiles.isNotEmpty()
+        btnMove.isEnabled = selectedFiles.isNotEmpty()
+        btnDelete.isEnabled = selectedFiles.isNotEmpty()
     }
 
     private fun toggleSelection(path: String) {
@@ -432,6 +460,30 @@ class FileManagerActivity : AppCompatActivity() {
             }
             .setNegativeButton("取消", null)
             .show()
+    }
+    
+    /**
+     * 复制选中的文件
+     */
+    private fun copySelectedFiles() {
+        if (selectedFiles.isEmpty()) {
+            Toast.makeText(this, "请先选择文件", Toast.LENGTH_SHORT).show()
+            return
+        }
+        Toast.makeText(this, "复制功能开发中", Toast.LENGTH_SHORT).show()
+        // TODO: 实现文件复制功能
+    }
+    
+    /**
+     * 移动选中的文件
+     */
+    private fun moveSelectedFiles() {
+        if (selectedFiles.isEmpty()) {
+            Toast.makeText(this, "请先选择文件", Toast.LENGTH_SHORT).show()
+            return
+        }
+        Toast.makeText(this, "移动功能开发中", Toast.LENGTH_SHORT).show()
+        // TODO: 实现文件移动功能
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

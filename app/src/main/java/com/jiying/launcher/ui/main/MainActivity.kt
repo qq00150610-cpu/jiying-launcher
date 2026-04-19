@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
     // 底部功能栏
     private lateinit var homeButton: ImageView
     private lateinit var navButton: ImageView
+    private lateinit var floatingMapBtn: ImageView
     private lateinit var rotateButton: ImageView
     private lateinit var lockButton: ImageView
     private lateinit var compassButton: ImageView
@@ -245,10 +246,17 @@ class MainActivity : AppCompatActivity() {
         musicNext = findViewById(R.id.music_next)
         musicLock = findViewById(R.id.music_lock)
         
-        // 横屏快捷功能
+        // 横屏快捷功能（可能不存在于竖屏布局）
         fileManagerLand = findViewById(R.id.file_manager_land)
         videoPlayerLand = findViewById(R.id.video_player_land)
         pipModeLand = findViewById(R.id.pip_mode_land)
+        
+        // 横屏快捷功能 - 仅在横屏模式下设置点击事件
+        if (isLandscape) {
+            fileManagerLand?.setOnClickListener { openFileManager() }
+            videoPlayerLand?.setOnClickListener { openVideoPlayer() }
+            pipModeLand?.setOnClickListener { openPipMode() }
+        }
         
         // 底部应用栏
         myAppsBtn = findViewById(R.id.my_apps)
@@ -265,6 +273,7 @@ class MainActivity : AppCompatActivity() {
         // 底部功能栏
         homeButton = findViewById(R.id.home_button)
         navButton = findViewById(R.id.nav_button)
+        floatingMapBtn = findViewById(R.id.floating_map_btn)
         rotateButton = findViewById(R.id.rotate_button)
         lockButton = findViewById(R.id.lock_button)
         compassButton = findViewById(R.id.compass_button)
@@ -293,10 +302,7 @@ class MainActivity : AppCompatActivity() {
         musicNext.setOnClickListener { nextTrack() }
         musicLock.setOnClickListener { showMusicLockDialog() }
         
-        // ========== 横屏快捷功能 ==========
-        fileManagerLand?.setOnClickListener { openFileManager() }
-        videoPlayerLand?.setOnClickListener { openVideoPlayer() }
-        pipModeLand?.setOnClickListener { openPipMode() }
+        // ========== 横屏快捷功能 - 已在initViews中处理 ==========
         
         // ========== 底部应用栏 ==========
         myAppsBtn.setOnClickListener { showAppsCenter() }
@@ -324,6 +330,9 @@ class MainActivity : AppCompatActivity() {
             LayoutModeSelectorActivity.start(this)
             true
         }
+        
+        // ========== 画中画导航按钮 ==========
+        floatingMapBtn?.setOnClickListener { handleFloatingMapButton() }
         
         volumeButton.setOnClickListener { showControlCenter() }
         lockButton.setOnClickListener { toggleScreenLock() }
@@ -495,6 +504,48 @@ class MainActivity : AppCompatActivity() {
         // 如果没有安装导航应用，尝试打开画中画
         openPipMode()
         Toast.makeText(this, "未检测到导航应用，已开启画中画模式", Toast.LENGTH_LONG).show()
+    }
+    
+    /**
+     * 处理画中画导航按钮点击
+     * 检查悬浮窗权限并启动画中画导航服务
+     */
+    private fun handleFloatingMapButton() {
+        if (Settings.canDrawOverlays(this)) {
+            startFloatingMapService()
+        } else {
+            requestOverlayPermission()
+        }
+    }
+    
+    /**
+     * 启动画中画导航服务
+     */
+    private fun startFloatingMapService() {
+        try {
+            FloatingMapService.startService(this)
+            Toast.makeText(this, "画中画导航已启动", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法启动画中画导航", Toast.LENGTH_SHORT).show()
+        }
+    }
+    
+    /**
+     * 请求悬浮窗权限
+     */
+    private fun requestOverlayPermission() {
+        AlertDialog.Builder(this)
+            .setTitle("需要权限")
+            .setMessage("需要悬浮窗权限来显示画中画导航。请在设置中开启悬浮窗权限。")
+            .setPositiveButton("去授权") { _, _ ->
+                val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+                intent.data = Uri.parse("package:$packageName")
+                startActivity(intent)
+            }
+            .setNegativeButton("取消") { _, _ ->
+                Toast.makeText(this, "需要悬浮窗权限才能使用画中画导航", Toast.LENGTH_SHORT).show()
+            }
+            .show()
     }
     
     /**

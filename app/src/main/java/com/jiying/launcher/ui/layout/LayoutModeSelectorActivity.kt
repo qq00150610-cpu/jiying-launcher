@@ -190,8 +190,13 @@ class LayoutModeSelectorActivity : AppCompatActivity() {
         if (selectedMode >= 0 && selectedMode < layoutModes.size) {
             val mode = layoutModes[selectedMode].mode
             
-            // 保存选择
-            LayoutModeManager.setLayoutMode(this, mode)
+            // 保存选择 - 使用正确的参数类型
+            LayoutModeManager.setLayoutMode(mode.ordinal)
+            
+            // 发送广播通知主界面更新
+            val intent = Intent("com.jiying.launcher.LAYOUT_MODE_CHANGED")
+            intent.putExtra("mode", mode.name)
+            sendBroadcast(intent)
             
             // 提示重启生效
             AlertDialog.Builder(this)

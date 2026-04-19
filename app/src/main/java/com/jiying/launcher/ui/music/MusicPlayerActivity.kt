@@ -37,11 +37,34 @@ import java.util.concurrent.TimeUnit
  * - 随机/循环模式
  * - 后台播放
  * - LRC歌词显示（基础）
+ * - 音乐应用选择（支持共存版识别）
  * 
  * @author 极影桌面开发团队
- * @version 2.0.0
+ * @version 2.1.0
  */
 class MusicPlayerActivity : AppCompatActivity() {
+
+    // ========== 音乐应用识别数据类 ==========
+    
+    data class MusicAppInfo(
+        val name: String,
+        val packageName: String,
+        val coexistPackage: String? = null // 共存版包名
+    )
+    
+    // 已知音乐应用包名列表
+    private val musicApps = listOf(
+        MusicAppInfo("QQ音乐", "com.tencent.qqmusic", "com.tencent.qqmusic.lite"),
+        MusicAppInfo("酷狗音乐", "com.kugou.android", "com.kugou.android.lite"),
+        MusicAppInfo("酷我音乐", "cn.kuwo.player", "cn.kuwo.player.lite"),
+        MusicAppInfo("网易云音乐", "com.netease.cloudmusic", "com.netease.cloudmusic.lite"),
+        MusicAppInfo("虾米音乐", "com.xiami.miplayer", "com.xiami.miplayer.pad"),
+        MusicAppInfo("百度音乐", "com.baidu.music", null),
+        MusicAppInfo("搜狗音乐", "com.sogou.music", null),
+        MusicAppInfo("Spotify", "com.spotify.music", null),
+        MusicAppInfo("YouTube Music", "com.google.android.apps.youtube.music", null),
+        MusicAppInfo("Amazon Music", "com.amazon.mp3", null)
+    )
 
     private lateinit var rootLayout: RelativeLayout
     private lateinit var titleText: TextView
@@ -161,6 +184,9 @@ class MusicPlayerActivity : AppCompatActivity() {
         shuffleBtn.setOnClickListener { toggleShuffle() }
         repeatBtn.setOnClickListener { toggleRepeat() }
         listBtn.setOnClickListener { togglePlaylist() }
+        
+        // 选择音乐应用按钮点击事件
+        findViewById<Button>(R.id.btn_select_app)?.setOnClickListener { showMusicAppSelector() }
         
         progressBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -476,6 +502,85 @@ class MusicPlayerActivity : AppCompatActivity() {
                 
                 itemView.setOnClickListener { onItemClick(adapterPosition) }
             }
+        }
+    }
+    
+    // ========== 音乐应用选择功能 ==========
+    
+    /**
+     * 扫描已安装的音乐应用
+     * 支持识别共存版应用
+     */
+    private fun scanInstalledMusicApps(): List<MusicAppInfo> {
+        val installed = mutableListOf<MusicAppInfo>()
+        for (app in musicApps) {
+            // 检查主版本
+            if (isPackageInstalled(app.packageName)) {
+                installed.add(app)
+            }
+            // 检查共存版
+            app.coexistPackage?.let { coexistPkg ->
+                if (isPackageInstalled(coexistPkg)) {
+                    // 添加共存版，名称标注
+                    installed.add(MusicAppInfo(
+                        name = "${app.name}(共存版)",
+                        packageName = coexistPkg,
+                        coexistPackage = null
+                    ))
+                }
+            }
+        }
+        return installed
+    }
+    
+    /**
+     * 检查指定包名的应用是否已安装
+     */
+    private fun isPackageInstalled(packageName: String): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, 0)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+    
+    /**
+     * 显示音乐应用选择对话框
+     */
+    private fun showMusicAppSelector() {
+        val apps = scanInstalledMusicApps()
+        
+        if (apps.isEmpty()) {
+            Toast.makeText(this, "未找到已安装的音乐应用", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        val items = apps.map { "${it.name}" }.toTypedArray()
+        
+        AlertDialog.Builder(this)
+            .setTitle("选择音乐应用")
+            .setItems(items) { _, which ->
+                launchMusicApp(apps[which].packageName)
+            }
+            .setNegativeButton("取消", null)
+            .show()
+    }
+    
+    /**
+     * 启动指定包名的音乐应用
+     */
+    private fun launchMusicApp(packageName: String) {
+        try {
+            val intent = packageManager.getLaunchIntentForPackage(packageName)
+            if (intent != null) {
+                startActivity(intent)
+                Toast.makeText(this, "正在启动...", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "无法启动应用", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "启动失败: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 }
