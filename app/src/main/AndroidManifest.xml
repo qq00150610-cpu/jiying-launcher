@@ -202,6 +202,14 @@
         <activity
             android:name=".ui.main.AppManagerActivity"
             android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 新增：自定义应用页面 -->
+        <activity
+            android:name=".ui.main.CustomAppActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
         <!-- 壁纸服务 -->

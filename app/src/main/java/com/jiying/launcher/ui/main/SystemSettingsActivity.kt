@@ -37,7 +37,7 @@ class SystemSettingsActivity : AppCompatActivity() {
         
         // 悬浮球设置
         findViewById<LinearLayout>(R.id.floating_ball_settings).setOnClickListener {
-            Toast.makeText(this, "悬浮球设置", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, com.jiying.launcher.ui.settings.FloatBallSettingsActivity::class.java))
         }
         
         // WiFi设置

@@ -222,7 +222,19 @@ class MainActivity : AppCompatActivity() {
         compassButton.setOnClickListener { openCompass() }
         
         // 添加应用按钮
-        addAppBtn.setOnClickListener { showAddAppDialog() }
+        addAppBtn.setOnClickListener { 
+            startActivityForResult(Intent(this, CustomAppActivity::class.java), REQUEST_CUSTOM_APP)
+        }
+        
+        // 系统设置按钮 -> SystemSettingsActivity
+        systemSettingsBtn.setOnClickListener { 
+            startActivity(Intent(this, SystemSettingsActivity::class.java))
+        }
+        
+        // 主页按钮 -> MenuActivity
+        homeButton.setOnClickListener { 
+            startActivity(Intent(this, MenuActivity::class.java))
+        }
         
         // 控制中心
         closeControlCenter.setOnClickListener { hideControlCenter() }
@@ -393,30 +405,28 @@ class MainActivity : AppCompatActivity() {
 
     // 显示添加应用对话框
     private fun showAddAppDialog() {
-        try {
-            val pm = packageManager
-            val apps = pm.getInstalledPackages(PackageManager.GET_ACTIVITIES)
-                .filter { 
-                    try {
-                        val appInfo = it.applicationInfo
-                        appInfo?.enabled == true && appInfo.loadLabel(pm).isNotBlank()
-                    } catch (e: Exception) { false }
-                }
-                .sortedBy { it.applicationInfo.loadLabel(pm).toString() }
-
-            val appNames = apps.map { it.applicationInfo.loadLabel(pm).toString() }.toTypedArray()
-
-            AlertDialog.Builder(this)
-                .setTitle("选择要添加的应用")
-                .setItems(appNames) { _, which ->
-                    val selectedApp = apps[which]
-                    addAppToHome(selectedApp.packageName, selectedApp.applicationInfo.loadLabel(pm).toString())
-                }
-                .setNegativeButton("取消", null)
-                .show()
-        } catch (e: Exception) {
-            Toast.makeText(this, "无法获取应用列表", Toast.LENGTH_SHORT).show()
+        // 跳转到自定义应用页面
+        val intent = Intent(this, CustomAppActivity::class.java)
+        startActivityForResult(intent, REQUEST_CODE_CUSTOM_APP)
+    }
+    
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_CUSTOM_APP && resultCode == RESULT_OK) {
+            // 刷新自定义应用显示
+            loadCustomApps()
         }
+    }
+    
+    private fun loadCustomApps() {
+        // 从SharedPreferences加载用户添加的应用并显示
+        val prefs = getSharedPreferences("custom_apps_prefs", MODE_PRIVATE)
+        val addedApps = prefs.getStringSet("added_apps", emptySet()) ?: emptySet()
+        // TODO: 更新UI显示自定义应用
+    }
+    
+    companion object {
+        private const val REQUEST_CODE_CUSTOM_APP = 1001
     }
 
     // 添加应用到首页
@@ -659,5 +669,15 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUEST_BLUETOOTH = 1001
+        private const val REQUEST_CUSTOM_APP = 1002
+    }
+    
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CUSTOM_APP && resultCode == RESULT_OK) {
+            // 刷新自定义应用列表
+            Toast.makeText(this, "自定义应用已更新", Toast.LENGTH_SHORT).show()
+        }
     }
 }
