@@ -1,6 +1,7 @@
 package com.jiying.launcher.ui.wallpaper
 
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
