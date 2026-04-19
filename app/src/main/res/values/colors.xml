@@ -24,6 +24,11 @@
     <color name="background_secondary">#161B22</color>
     <color name="background_card">#21262D</color>
 
+    <!-- 主题背景 -->
+    <color name="background_dark">#0D1117</color>
+    <color name="surface_dark">#1A1D21</color>
+    <color name="surface_dark_transparent">#801A1D21</color>
+
     <!-- 卡片颜色 -->
     <color name="card_background">#1C2128</color>
     <color name="nav_card_background">#1A3A4A</color>
@@ -62,4 +67,14 @@
     <!-- 渐变色 -->
     <color name="gradient_start">#1A1A2E</color>
     <color name="gradient_end">#16213E</color>
+
+    <!-- 主题强调色 -->
+    <color name="accent_primary">#00D9A5</color>
+    <color name="accent_primary_transparent">#3300D9A5</color>
+
+    <!-- 分隔线 -->
+    <color name="divider">#30363D</color>
+
+    <!-- 开关颜色 -->
+    <color name="switch_track_color">#484F58</color>
 </resources>
