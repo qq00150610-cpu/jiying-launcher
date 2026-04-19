@@ -10,7 +10,9 @@ data class AppInfo(
     val packageName: String,
     val icon: Drawable,
     val isSystemApp: Boolean = false,
-    val category: String = "其他"
+    val category: String = "其他",
+    val version: String = "",
+    val apkPath: String = ""
 )
 
 /**

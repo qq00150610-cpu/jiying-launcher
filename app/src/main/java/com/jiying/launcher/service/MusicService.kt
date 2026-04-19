@@ -24,7 +24,7 @@ class MusicService : Service() {
     private var mediaPlayer: MediaPlayer? = null
     private var currentPath: String? = null
     private var isPlaying = false
-    private var isShuffleEnabled = false
+    var isShuffleEnabled = false
     private var repeatMode = 0 // 0: 不重复, 1: 单曲循环, 2: 列表循环
     
     companion object {
@@ -80,7 +80,7 @@ class MusicService : Service() {
             mediaPlayer = MediaPlayer().apply {
                 setOnPreparedListener {
                     start()
-                    isPlaying = true
+                    this@MusicService.isPlaying = true
                 }
                 setOnCompletionListener {
                     when (repeatMode) {
@@ -92,7 +92,7 @@ class MusicService : Service() {
                             // 播放下一首
                         }
                         else -> {
-                            isPlaying = false
+                            this@MusicService.isPlaying = false
                         }
                     }
                 }

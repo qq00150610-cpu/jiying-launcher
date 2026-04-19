@@ -48,9 +48,11 @@ class LauncherNotificationListenerService : NotificationListenerService() {
             }
             
             // 发送广播通知UI更新
-            sendBroadcast(Intent(NotificationAction.ACTION_NOTIFICATION_POSTED).apply {
-                putExtra("notification", notification)
-            })
+            val broadcastIntent = Intent(NotificationAction.ACTION_NOTIFICATION_POSTED).apply {
+                putExtra("package_name", notification.packageName)
+                putExtra("title", notification.title)
+            }
+            sendBroadcast(broadcastIntent)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -69,10 +71,11 @@ class LauncherNotificationListenerService : NotificationListenerService() {
             }
             
             // 发送广播通知UI更新
-            sendBroadcast(Intent(ACTION_NOTIFICATION_REMOVED).apply {
+            val broadcastIntent = Intent(NotificationAction.ACTION_NOTIFICATION_REMOVED).apply {
                 putExtra("package", packageName)
                 putExtra("title", title)
-            })
+            }
+            sendBroadcast(broadcastIntent)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -120,10 +123,8 @@ class LauncherNotificationListenerService : NotificationListenerService() {
     fun openNotification(sbn: StatusBarNotification?) {
         try {
             sbn ?: return
-            val intent = sbn.notification.contentIntent
-            if (intent != null) {
-                startActivity(intent)
-            }
+            val pendingIntent = sbn.notification.contentIntent
+            pendingIntent?.send()
         } catch (e: Exception) {
             e.printStackTrace()
         }

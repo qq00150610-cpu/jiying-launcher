@@ -70,7 +70,7 @@ class UsbDeviceReceiver : BroadcastReceiver() {
             
             device?.let {
                 // 发送广播通知UI
-                val broadcastIntent = Intent(ACTION_USB_DEVICE_DISCONNECTED).apply {
+                val broadcastIntent = Intent(UsbDeviceAction.ACTION_USB_DEVICE_DISCONNECTED).apply {
                     putExtra("device_name", it.deviceName)
                     putExtra("vendor_id", it.vendorId)
                     putExtra("product_id", it.productId)
