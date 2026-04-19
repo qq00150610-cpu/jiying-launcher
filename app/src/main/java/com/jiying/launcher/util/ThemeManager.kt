@@ -61,19 +61,11 @@ object ThemeManager {
     }
 
     /**
-     * 应用主题
+     * 应用主题 - 不使用AppCompatDelegate，避免闪屏
      */
     fun applyTheme(theme: String = getCurrentTheme()) {
-        when (theme) {
-            THEME_BUDING -> {
-                // 布丁UI风格
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-            }
-            THEME_HYDROGEN -> {
-                // 氢桌面风格 - 始终使用浅色主题
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-        }
+        // 不调用AppCompatDelegate.setDefaultNightMode，避免Activity重建闪屏
+        // 主题切换由MainActivity手动处理背景颜色
     }
 
     /**
