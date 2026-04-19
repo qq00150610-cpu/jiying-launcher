@@ -16,16 +16,6 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
         <item name="android:windowBackground">@drawable/bg_gradient</item>
-        <!-- 平滑过渡动画 -->
-        <item name="android:windowAnimationStyle">@style/ThemeTransition</item>
-    </style>
-    
-    <!-- 主题切换过渡动画 -->
-    <style name="ThemeTransition">
-        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
 
     <!-- 布丁UI风格 -->

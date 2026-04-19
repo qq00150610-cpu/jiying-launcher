@@ -378,18 +378,12 @@ class MainActivity : AppCompatActivity() {
         } else {
             ThemeManager.setTheme(ThemeManager.THEME_BUDING)
         }
-        // 使用淡入淡出动画避免闪屏
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         recreate()
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun switchTheme() {
         ThemeManager.toggleTheme()
-        // 使用淡入淡出动画避免闪屏
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         recreate()
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 
     private fun startTimeUpdate() {
