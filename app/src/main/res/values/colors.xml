@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 布丁UI风格配色 -->
+    <color name="buding_primary">#2196F3</color>
+    <color name="buding_primary_dark">#1976D2</color>
+    <color name="buding_accent">#FF5722</color>
+    <color name="buding_accent_dark">#E64A19</color>
+    <color name="buding_background">#F5F5F5</color>
+
+    <!-- 氢桌面风格配色 -->
+    <color name="hydrogen_primary">#4CAF50</color>
+    <color name="hydrogen_primary_dark">#388E3C</color>
+    <color name="hydrogen_accent">#03A9F4</color>
+    <color name="hydrogen_accent_dark">#0288D1</color>
+    <color name="hydrogen_background">#FAFAFA</color>
+
+    <!-- 默认主题色 -->
+    <color name="primary_color">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="accent_color">#FF5722</color>
+
+    <!-- 背景色 -->
+    <color name="background_primary">#F5F5F5</color>
+    <color name="background_secondary">#EEEEEE</color>
+
+    <!-- 卡片颜色 -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="nav_card_background">#E3F2FD</color>
+    <color name="music_card_background">#FFF3E0</color>
+
+    <!-- 导航栏背景 -->
+    <color name="nav_bar_background">#FFFFFF</color>
+    <color name="control_panel_background">#FFFFFF</color>
+
+    <!-- 文字颜色 -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+
+    <!-- 功能按钮 -->
+    <color name="button_background">#E0E0E0</color>
+    <color name="button_pressed">#BDBDBD</color>
+
+    <!-- 状态颜色 -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FFC107</color>
+    <color name="error">#F44336</color>
+    <color name="info">#2196F3</color>
+
+    <!-- 透明度 -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+
+    <!-- 主题开关颜色 -->
+    <color name="theme_switch_buding">#FF5722</color>
+    <color name="theme_switch_hydrogen">#4CAF50</color>
+</resources>

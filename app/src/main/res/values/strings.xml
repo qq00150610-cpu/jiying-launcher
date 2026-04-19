@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">极影桌面</string>
+    <string name="app_description">极影桌面 - 智能车机桌面</string>
+
+    <!-- 主界面 -->
+    <string name="home">首页</string>
+    <string name="navigation">导航</string>
+    <string name="music">音乐</string>
+    <string name="lock_screen">锁屏</string>
+    <string name="info">资讯</string>
+    <string name="volume">音量</string>
+    <string name="weather">天气</string>
+
+    <!-- 控制中心 -->
+    <string name="control_center">控制中心</string>
+    <string name="screen_brightness">屏幕亮度</string>
+    <string name="media_volume">媒体音量</string>
+    <string name="wifi">WiFi</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="close">关闭</string>
+
+    <!-- 智能助理 -->
+    <string name="assistant">智能助理</string>
+    <string name="voice_input">语音输入</string>
+    <string name="say_something">说点什么…</string>
+
+    <!-- 壁纸中心 -->
+    <string name="wallpaper_center">壁纸中心</string>
+    <string name="static_wallpaper">静态壁纸</string>
+    <string name="live_wallpaper">动态壁纸</string>
+    <string name="my_wallpaper">我的壁纸</string>
+    <string name="apply_wallpaper">设为壁纸</string>
+
+    <!-- 轻应用中心 -->
+    <string name="apps_center">轻应用中心</string>
+    <string name="video">影音</string>
+    <string name="podcast">播客</string>
+    <string name="game">游戏</string>
+    <string name="news">资讯</string>
+    <string name="learning">学习</string>
+    <string name="other">其他</string>
+
+    <!-- 车主服务 -->
+    <string name="car_service">车主服务</string>
+    <string name="file_manager">文件管理</string>
+    <string name="app_backup">应用备份</string>
+    <string name="remote_transfer">远程传输</string>
+    <string name="cache_clean">垃圾清理</string>
+    <string name="traffic_monitor">流量监控</string>
+
+    <!-- 主题 -->
+    <string name="theme">主题</string>
+    <string name="theme_buding">布丁UI风格</string>
+    <string name="theme_hydrogen">氢桌面风格</string>
+    <string name="switch_theme">切换主题</string>
+
+    <!-- 通用 -->
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="ok">确定</string>
+    <string name="error">错误</string>
+    <string name="success">成功</string>
+    <string name="loading">加载中…</string>
+    <string name="no_data">暂无数据</string>
+    <string name="refresh">刷新</string>
+    <string name="search">搜索</string>
+    <string name="settings">设置</string>
+
+    <!-- 时间格式 -->
+    <string name="date_format">yyyy年MM月dd日 E</string>
+    <string name="time_format">HH:mm</string>
+
+    <!-- 音乐 -->
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="previous">上一首</string>
+    <string name="next">下一首</string>
+    <string name="no_music_playing">暂无播放</string>
+    <string name="unknown_artist">未知艺术家</string>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 布丁UI风格 - 默认主题 -->
+    <style name="Theme.JiYingLauncher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/buding_primary</item>
+        <item name="colorPrimaryVariant">@color/buding_primary_dark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/buding_accent</item>
+        <item name="colorSecondaryVariant">@color/buding_accent_dark</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:colorBackground">@color/background_primary</item>
+        <item name="colorSurface">@color/card_background</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- 布丁UI风格 -->
+    <style name="Theme.JiYingLauncher.Buding">
+        <item name="colorPrimary">@color/buding_primary</item>
+        <item name="colorSecondary">@color/buding_accent</item>
+        <item name="android:colorBackground">@color/buding_background</item>
+    </style>
+
+    <!-- 氢桌面风格 -->
+    <style name="Theme.JiYingLauncher.Hydrogen">
+        <item name="colorPrimary">@color/hydrogen_primary</item>
+        <item name="colorSecondary">@color/hydrogen_accent</item>
+        <item name="android:colorBackground">@color/hydrogen_background</item>
+    </style>
+
+    <!-- 透明主题 -->
+    <style name="Theme.JiYingLauncher.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 卡片样式 -->
+    <style name="CardStyle.Buding">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+
+    <style name="CardStyle.Hydrogen">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+
+    <!-- 按钮样式 -->
+    <style name="CircleButton">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:background">@drawable/bg_circle_button</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- 文字样式 -->
+    <style name="TextStyle.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextStyle.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextStyle.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+</resources>
