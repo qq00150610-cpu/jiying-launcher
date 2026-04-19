@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.jiying.launcher.R
+import com.jiying.launcher.ui.settings.SystemSettingsActivity
 
 /**
  * 菜单页面（横屏）
