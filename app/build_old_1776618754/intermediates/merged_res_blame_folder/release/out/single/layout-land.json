@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.jiying.launcher.app-mergeReleaseResources-3:/layout-land/activity_main.xml",
+        "source": "com.jiying.launcher.app-main-5:/layout-land/activity_main.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-mergeReleaseResources-3:/layout-land/activity_custom_app.xml",
+        "source": "com.jiying.launcher.app-main-5:/layout-land/activity_custom_app.xml"
+    }
+]

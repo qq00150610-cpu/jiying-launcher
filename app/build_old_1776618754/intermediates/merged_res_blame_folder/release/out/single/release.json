@@ -1,0 +1,730 @@
+[
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_page_dot_inactive.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_page_dot_inactive.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_close.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_close.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_screen_rotation.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_screen_rotation.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_video_player.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_video_player.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_wifi.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_wifi.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_folder.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_folder.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_nav_button_selected.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_nav_button_selected.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_music_note.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_music_note.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_zoom_out.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_zoom_out.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_dashed.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_dashed.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_theme_center.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_theme_center.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_blue.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_blue.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_wifi.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_wifi.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_layout_mode_selector.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_layout_mode_selector.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_navigation_float.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_navigation_float.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_skip_next.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_skip_next.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_minimize.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_minimize.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_volume.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_volume.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_storage.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_storage.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/xml_usb_device_filter.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/xml/usb_device_filter.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_arrow_right.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_arrow_right.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_plugin.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_plugin.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_app_list.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_app_list.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_music_list.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_music_list.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_device_config.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_device_config.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_menu.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_menu.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_float_ball.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/float_ball.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_floating_ball.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_floating_ball.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_apps_grid.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_apps_grid.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_location.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_location.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_settings.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_music_player.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_music_player.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_btn_text.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_btn_text.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_arrow_back.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_arrow_back.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_image_grid.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_image_grid.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_vinyl_record.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_vinyl_record.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_layout_default.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_layout_default.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/xml_wallpaper.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/xml/wallpaper.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_sound.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_sound.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_phone.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_phone.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_circle_button_primary.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_circle_button_primary.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_map_placeholder.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_map_placeholder.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_main.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_kuwo_logo.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_kuwo_logo.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_display.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_display.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_zoom_in.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_zoom_in.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_gradient.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_gradient.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_app_store.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_app_store.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_file_list.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_file_list.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_bluetooth.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_bluetooth.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_check_circle.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_check_circle.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_app_manager.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_app_manager.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_repeat.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_repeat.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_pip.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_pip.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_bell.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_bell.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_wallpaper.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_wallpaper.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_assistant.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_assistant.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_back_desktop.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_back_desktop.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_blue_gradient.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_blue_gradient.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout-land_activity_custom_app.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout-land/activity_custom_app.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_image.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_image.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_car_connect.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_car_connect.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_item_row.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_item_row.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_flash.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_flash.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_btn_primary.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_btn_primary.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_red_badge.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_red_badge.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_rounded.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_rounded.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_image_viewer.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_image_viewer.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_circle.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_circle.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_custom_app_item.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_custom_app_item.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_theme_grid.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_theme_grid.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_cyan.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_cyan.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_work.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_work.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_pause.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_pause.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_add_circle_blue.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_add_circle_blue.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_fullscreen.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_fullscreen.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_circle_button_bg.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/circle_button_bg.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_circle_button_small.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_circle_button_small.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_mini_player.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_mini_player.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_video.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_video.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_playlist.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_playlist.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_usb_device_manager.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_usb_device_manager.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_cloud.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_cloud.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_sort.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_sort.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_layout_control_center.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/layout_control_center.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_calculator.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_calculator.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_mic.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_mic.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_circle_button_primary.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/circle_button_primary.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_float_ball_settings.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_float_ball_settings.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_nav_button.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_nav_button.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_app.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_app.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_more_functions.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_more_functions.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_info.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_info.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_skip_previous.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_skip_previous.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_service.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_service.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_chevron_right.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_chevron_right.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_app_grid.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_app_grid.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_btn_outline.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_btn_outline.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_search.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_btn_secondary.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_btn_secondary.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_circle_button.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_circle_button.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_compass.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_compass.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_storage.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_storage.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_kuwo.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_kuwo.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_float_window.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_float_window.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_done_button.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_done_button.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_add_circle.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_add_circle.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_theme_flower.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_theme_flower.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_clock.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_clock.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_paper_plane.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_paper_plane.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_wallpaper_default.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_wallpaper_default.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_check_box.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_check_box.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_usb_device.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_usb_device.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_rotate.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_rotate.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_more_vert.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_more_vert.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_display.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_display.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_nav_float_ball.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/nav_float_ball.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_shuffle.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_shuffle.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_file_manager.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_file_manager.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_menu_item.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_menu_item.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_navigation.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_navigation.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_remove_circle_red.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_remove_circle_red.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_amap_logo.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_amap_logo.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_control_center.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_control_center.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_custom_app.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_custom_app.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_sound.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_sound.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_tag_recommended.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_tag_recommended.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_function.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_function.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_page_dot_active.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_page_dot_active.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_video_grid.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_video_grid.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_theme.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_theme.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_call.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_call.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_green.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_green.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_local_music_list.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_local_music_list.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_star.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_star.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_night_mode.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_night_mode.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout-port_activity_main.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout-port/activity_main.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_yellow.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_yellow.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_music.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_music.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_wallpaper_preview.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_wallpaper_preview.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_default_wallpaper.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/default_wallpaper.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_apps.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_apps.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_brightness.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_brightness.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_bluetooth.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_bluetooth.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_light_app.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_light_app.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_system_settings.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_system_settings.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_file.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_file.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_spinner.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_spinner.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_nav_bar.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_nav_bar.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout-land_activity_main.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout-land/activity_main.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_waveform.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_waveform.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_lock.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_lock.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_nav_arrow_glow.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_nav_arrow_glow.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_file.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_file.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_picture_in_picture.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_picture_in_picture.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_btn_open_map.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_btn_open_map.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_refresh.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/xml_accessibility_service_config.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_usb.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_usb.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_circle_gradient.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_circle_gradient.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_explore.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_explore.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_back.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_back.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_add.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_apps_center.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_apps_center.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_setting_arrow.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_setting_arrow.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_custom_app.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_custom_app.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_circle_button_white.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_circle_button_white.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_bg_app_icon_gradient_purple.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/bg_app_icon_gradient_purple.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_home.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_home.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_item_layout_mode.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/item_layout_mode.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_app_manager.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_app_manager.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_play.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_play.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_video_file.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_video_file.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_store.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_store.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_headphones.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_headphones.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_car.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_car.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/drawable_ic_location.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/drawable/ic_location.xml"
+    },
+    {
+        "merged": "com.jiying.launcher.app-merged_res-4:/layout_activity_driving_mode.xml.flat",
+        "source": "com.jiying.launcher.app-main-5:/layout/activity_driving_mode.xml"
+    }
+]

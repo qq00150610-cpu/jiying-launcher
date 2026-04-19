@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/music_player_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A2E"
+    android:padding="16dp">
+
+    <!-- 标题栏 -->
+    <TextView
+        android:id="@+id/music_player_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="音乐播放器"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <!-- 专辑封面 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/album_art_card"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/music_player_title"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/music_album_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_music_note"
+            android:background="#2D2D44" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- 歌曲信息 -->
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/album_art_card"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="暂无播放"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="marquee" />
+
+    <TextView
+        android:id="@+id/music_artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_title"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="未知艺术家"
+        android:textColor="#AAAAAA"
+        android:textSize="16sp" />
+
+    <!-- 进度条 -->
+    <SeekBar
+        android:id="@+id/music_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_artist"
+        android:layout_marginTop="24dp"
+        android:progressTint="#00D9FF"
+        android:thumbTint="#00D9FF" />
+
+    <TextView
+        android:id="@+id/music_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_progress"
+        android:layout_alignParentStart="true"
+        android:text="00:00"
+        android:textColor="#888888"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/music_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_progress"
+        android:layout_alignParentEnd="true"
+        android:text="00:00"
+        android:textColor="#888888"
+        android:textSize="12sp" />
+
+    <!-- 播放控制按钮 -->
+    <LinearLayout
+        android:id="@+id/control_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_current_time"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_shuffle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_shuffle"
+            android:contentDescription="随机播放"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btn_prev"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/circle_button_bg"
+            android:src="@drawable/ic_skip_previous"
+            android:contentDescription="上一首"
+            app:tint="#1A1A2E" />
+
+        <ImageButton
+            android:id="@+id/btn_play_pause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle_button_primary"
+            android:src="@drawable/ic_play"
+            android:contentDescription="播放/暂停"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/circle_button_bg"
+            android:src="@drawable/ic_skip_next"
+            android:contentDescription="下一首"
+            app:tint="#1A1A2E" />
+
+        <ImageButton
+            android:id="@+id/btn_repeat"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_repeat"
+            android:contentDescription="循环播放"
+            app:tint="#FFFFFF" />
+
+    </LinearLayout>
+
+    <!-- 播放列表按钮 -->
+    <ImageButton
+        android:id="@+id/btn_list"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_playlist"
+        android:contentDescription="播放列表"
+        app:tint="#FFFFFF" />
+
+    <!-- 选择音乐应用按钮 -->
+    <Button
+        android:id="@+id/btn_select_app"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_toStartOf="@id/btn_list"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:text="选择音乐应用"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:paddingHorizontal="12dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp" />
+
+    <!-- 当前播放卡片 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/now_playing_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#2D2D44">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_music_note"
+                android:background="#1A1A2E" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正在播放"
+                    android:textColor="#00D9FF"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- 音乐列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/music_list_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@id/now_playing_card"
+        android:layout_marginBottom="8dp"
+        android:background="#2D2D44"
+        android:visibility="gone" />
+
+</RelativeLayout>

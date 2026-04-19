@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_color">#FF9800</color>
+    <color name="accent_primary">#00D9A5</color>
+    <color name="accent_primary_transparent">#3300D9A5</color>
+    <color name="background_card">#21262D</color>
+    <color name="background_dark">#0D1117</color>
+    <color name="background_primary">#0D1117</color>
+    <color name="background_secondary">#161B22</color>
+    <color name="buding_accent">#FF9800</color>
+    <color name="buding_accent_dark">#F57C00</color>
+    <color name="buding_background">#1A1A2E</color>
+    <color name="buding_primary">#00BCD4</color>
+    <color name="buding_primary_dark">#0097A7</color>
+    <color name="button_accent">#FF9800</color>
+    <color name="button_background">#30363D</color>
+    <color name="button_pressed">#484F58</color>
+    <color name="button_primary">#00BCD4</color>
+    <color name="card_background">#1C2128</color>
+    <color name="control_panel_background">#21262D</color>
+    <color name="divider">#30363D</color>
+    <color name="error">#F85149</color>
+    <color name="gradient_end">#16213E</color>
+    <color name="gradient_start">#1A1A2E</color>
+    <color name="hydrogen_accent">#03A9F4</color>
+    <color name="hydrogen_accent_dark">#0288D1</color>
+    <color name="hydrogen_background">#0D1117</color>
+    <color name="hydrogen_primary">#4CAF50</color>
+    <color name="hydrogen_primary_dark">#388E3C</color>
+    <color name="icon_disabled">#484F58</color>
+    <color name="icon_normal">#FFFFFF</color>
+    <color name="icon_selected">#00BCD4</color>
+    <color name="info">#58A6FF</color>
+    <color name="music_card_background">#2D1F3D</color>
+    <color name="nav_bar_background">#161B22</color>
+    <color name="nav_card_background">#1A3A4A</color>
+    <color name="overlay_dark">#CC000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+    <color name="primary_color">#00BCD4</color>
+    <color name="primary_dark">#0097A7</color>
+    <color name="success">#3FB950</color>
+    <color name="surface_dark">#1A1D21</color>
+    <color name="surface_dark_transparent">#801A1D21</color>
+    <color name="switch_track_color">#484F58</color>
+    <color name="text_hint">#484F58</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8B949E</color>
+    <color name="warning">#D29922</color>
+    <string name="accessibility_service_description">极影桌面辅助服务，用于手势操作、应用切换和通知显示</string>
+    <string name="ai_assistant">AI智能助手</string>
+    <string name="app_manager">应用管理</string>
+    <string name="app_name">极影桌面</string>
+    <string name="control_center">控制中心</string>
+    <string name="driving_mode">驾驶模式</string>
+    <string name="file_manager">文件管理</string>
+    <string name="float_ball_settings">悬浮球设置</string>
+    <string name="floating_map">悬浮地图</string>
+    <string name="image_viewer">图片查看</string>
+    <string name="layout_carplay">CarPlay风格</string>
+    <string name="layout_default">默认模式</string>
+    <string name="layout_hybrid">混合模式</string>
+    <string name="layout_map_focus">地图优先</string>
+    <string name="layout_minimal">极简模式</string>
+    <string name="layout_mode_selector">布局模式选择</string>
+    <string name="layout_music_focus">音乐优先</string>
+    <string name="light_app_center">轻应用中心</string>
+    <string name="local_music">本地音乐</string>
+    <string name="more_functions">更多功能</string>
+    <string name="multi_device_config">多设备配置</string>
+    <string name="music_player">音乐播放器</string>
+    <string name="navigation_float">导航浮窗</string>
+    <string name="preset_10_inch">10寸车机</string>
+    <string name="preset_12_inch">12寸车机</string>
+    <string name="preset_7_inch">7寸车机</string>
+    <string name="preset_auto_detect">自动检测</string>
+    <string name="preset_custom">自定义</string>
+    <string name="preset_phone">手机兼容</string>
+    <string name="preset_tesla">特斯拉风格</string>
+    <string name="preset_vertical">竖屏车机</string>
+    <string name="quick_return_ball">小白点</string>
+    <string name="screen_adapter">屏幕适配</string>
+    <string name="system_settings">系统设置</string>
+    <string name="theme_center">主题中心</string>
+    <string name="usb_manager">USB设备管理</string>
+    <string name="video_player">视频播放器</string>
+    <style name="CardStyle">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+    <style name="CardStyle.Buding">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+    <style name="CardStyle.Hydrogen">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+    </style>
+    <style name="CircleButton">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:background">@drawable/bg_circle_gradient</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="TextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    <style name="TextStyle.Body">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    <style name="TextStyle.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="TextStyle.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.JiYingLauncher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="colorSecondaryVariant">@color/accent_color</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:colorBackground">@color/background_primary</item>
+        <item name="colorSurface">@color/card_background</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+    </style>
+    <style name="Theme.JiYingLauncher.Buding">
+        <item name="colorPrimary">@color/buding_primary</item>
+        <item name="colorSecondary">@color/buding_accent</item>
+        <item name="android:colorBackground">@color/buding_background</item>
+    </style>
+    <style name="Theme.JiYingLauncher.Hydrogen">
+        <item name="colorPrimary">@color/hydrogen_primary</item>
+        <item name="colorSecondary">@color/hydrogen_accent</item>
+        <item name="android:colorBackground">@color/hydrogen_background</item>
+    </style>
+    <style name="Theme.JiYingLauncher.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>

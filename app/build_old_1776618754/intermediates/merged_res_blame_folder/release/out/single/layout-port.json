@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.jiying.launcher.app-mergeReleaseResources-3:/layout-port/activity_main.xml",
+        "source": "com.jiying.launcher.app-main-5:/layout-port/activity_main.xml"
+    }
+]
