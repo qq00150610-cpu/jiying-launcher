@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 权限声明 -->
+    <!-- 基础权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -24,6 +24,33 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+    
+    <!-- 复刻耗子桌面权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <uses-permission android:name="android.permission.MANAGE_USB" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:name=".JiYingApplication"
@@ -84,6 +111,80 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
+        <!-- ==================== 复刻耗子桌面Activity ==================== -->
+
+        <!-- 音乐播放器 -->
+        <activity
+            android:name=".ui.music.MusicPlayerActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 视频播放器 -->
+        <activity
+            android:name=".ui.video.VideoPlayerActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 驾驶模式 -->
+        <activity
+            android:name=".ui.driving.DrivingModeActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 主题中心 -->
+        <activity
+            android:name=".ui.theme.ThemeCenterActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 应用管理 -->
+        <activity
+            android:name=".ui.apps.AppManagerActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 悬浮球设置 -->
+        <activity
+            android:name=".ui.settings.FloatBallSettingsActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 导航浮窗 -->
+        <activity
+            android:name=".ui.navigation.NavigationFloatActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 更多功能 -->
+        <activity
+            android:name=".ui.main.MoreFunctionsActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 本地音乐列表 -->
+        <activity
+            android:name=".ui.music.LocalMusicListActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 图片查看器 -->
+        <activity
+            android:name=".ui.media.ImageViewerActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- USB设备管理 -->
+        <activity
+            android:name=".ui.usb.UsbDeviceManagerActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 系统设置 -->
+        <activity
+            android:name=".ui.settings.SystemSettingsActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
         <!-- 壁纸服务 -->
         <service
             android:name=".service.WallpaperService"
@@ -103,6 +204,51 @@
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
 
+        <!-- ==================== 复刻耗子桌面Service ==================== -->
+
+        <!-- 音乐播放服务 -->
+        <service
+            android:name=".service.MusicService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- 悬浮球服务 -->
+        <service
+            android:name=".service.FloatBallService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- 导航浮窗服务 -->
+        <service
+            android:name=".service.NavigationFloatService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- 无障碍服务 -->
+        <service
+            android:name=".service.LauncherAccessibilityService"
+            android:label="极影桌面辅助服务"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- 通知监听服务 -->
+        <service
+            android:name=".service.LauncherNotificationListenerService"
+            android:label="极影桌面通知服务"
+            android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
         <!-- 开机广播接收器 -->
         <receiver
             android:name=".receiver.BootCompletedReceiver"
@@ -113,6 +259,23 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
+
+        <!-- ==================== 复刻耗子桌面Receiver ==================== -->
+
+        <!-- USB设备接收器 -->
+        <receiver
+            android:name=".receiver.UsbDeviceReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+                <action android:name="android.hardware.usb.action.USB_DEVICE_DETACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/usb_device_filter" />
+        </receiver>
+
     </application>
 
 </manifest>
