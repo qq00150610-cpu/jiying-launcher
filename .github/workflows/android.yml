@@ -32,10 +32,22 @@ jobs:
         run: chmod +x gradlew
         
       - name: Build debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: |
+          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 | tee build-debug.log
+          echo "=== Build Debug Log (last 150 lines) ===" >> build-debug.log
+          tail -150 build-debug.log
+        continue-on-error: true
+        
+      - name: Show build errors
+        if: failure()
+        run: |
+          echo "=== Checking for errors ==="
+          grep -E "error:|Error:|FAILED|Exception" build-debug.log || echo "No errors found in grep"
+          echo "=== Last 50 lines ==="
+          tail -50 build-debug.log || true
         
       - name: Build release APK
-        run: ./gradlew assembleRelease --no-daemon
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
