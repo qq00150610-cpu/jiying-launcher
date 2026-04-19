@@ -17,4 +17,33 @@
     <string name="image_viewer">图片查看</string>
     <string name="usb_manager">USB设备管理</string>
     <string name="system_settings">系统设置</string>
+    
+    <!-- 新增功能模块 -->
+    <string name="layout_mode_selector">布局模式选择</string>
+    <string name="screen_adapter">屏幕适配</string>
+    <string name="multi_device_config">多设备配置</string>
+    <string name="floating_map">悬浮地图</string>
+    <string name="ai_assistant">AI智能助手</string>
+    <string name="light_app_center">轻应用中心</string>
+    <string name="file_manager">文件管理</string>
+    <string name="control_center">控制中心</string>
+    <string name="quick_return_ball">小白点</string>
+    
+    <!-- 布局模式名称 -->
+    <string name="layout_default">默认模式</string>
+    <string name="layout_hybrid">混合模式</string>
+    <string name="layout_map_focus">地图优先</string>
+    <string name="layout_music_focus">音乐优先</string>
+    <string name="layout_minimal">极简模式</string>
+    <string name="layout_carplay">CarPlay风格</string>
+    
+    <!-- 设备预设名称 -->
+    <string name="preset_auto_detect">自动检测</string>
+    <string name="preset_7_inch">7寸车机</string>
+    <string name="preset_10_inch">10寸车机</string>
+    <string name="preset_12_inch">12寸车机</string>
+    <string name="preset_tesla">特斯拉风格</string>
+    <string name="preset_vertical">竖屏车机</string>
+    <string name="preset_phone">手机兼容</string>
+    <string name="preset_custom">自定义</string>
 </resources>

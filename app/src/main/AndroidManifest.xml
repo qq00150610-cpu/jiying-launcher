@@ -248,6 +248,26 @@
             android:exported="false"
             android:foregroundServiceType="specialUse" />
 
+        <!-- 悬浮地图服务（画中画导航） -->
+        <service
+            android:name=".service.FloatingMapService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <!-- 布局模式选择器Activity -->
+        <activity
+            android:name=".ui.layout.LayoutModeSelectorActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 多设备配置Activity -->
+        <activity
+            android:name=".ui.settings.DeviceConfigActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.JiYingLauncher" />
+
         <!-- 无障碍服务 -->
         <service
             android:name=".service.LauncherAccessibilityService"

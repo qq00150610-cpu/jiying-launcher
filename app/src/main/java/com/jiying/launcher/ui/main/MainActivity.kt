@@ -20,7 +20,11 @@ import com.jiying.launcher.R
 import com.jiying.launcher.ui.main.AppManagerActivity
 import com.jiying.launcher.ui.main.MenuActivity
 import com.jiying.launcher.ui.settings.SystemSettingsActivity
+import com.jiying.launcher.ui.layout.LayoutModeSelectorActivity
+import com.jiying.launcher.ui.settings.DeviceConfigActivity
 import com.jiying.launcher.util.ThemeManager
+import com.jiying.launcher.util.ScreenAdapter
+import com.jiying.launcher.util.LayoutModeManager
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -97,6 +101,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         try {
             audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            
+            // 初始化屏幕适配和布局管理器
+            ScreenAdapter.init(this)
+            LayoutModeManager.init(this)
+            ThemeManager.init(this)
+            
+            // 应用当前布局模式
+            applyLayoutMode()
+            
             ThemeManager.applyTheme()
             hideSystemUI()
             initViews()
@@ -107,6 +120,33 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
             Toast.makeText(this, "启动错误: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+    
+    /**
+     * 应用当前布局模式
+     * 根据LayoutModeManager的配置动态调整界面元素
+     */
+    private fun applyLayoutMode() {
+        val config = LayoutModeManager.getCurrentLayoutConfig()
+        
+        // 根据不同布局模式调整界面
+        when (config.mode) {
+            ScreenAdapter.LayoutMode.MODE_MINIMAL -> {
+                // 极简模式：隐藏大部分卡片，只保留底部Dock
+            }
+            ScreenAdapter.LayoutMode.MODE_MAP_FOCUS -> {
+                // 地图优先：放大地图卡片
+            }
+            ScreenAdapter.LayoutMode.MODE_MUSIC_FOCUS -> {
+                // 音乐优先：放大音乐卡片
+            }
+            ScreenAdapter.LayoutMode.MODE_CARPLAY -> {
+                // CarPlay风格：大图标布局
+            }
+            else -> {
+                // 默认模式和混合模式：标准布局
+            }
         }
     }
 
@@ -237,6 +277,20 @@ class MainActivity : AppCompatActivity() {
         // 控制中心
         closeControlCenter.setOnClickListener { hideControlCenter() }
         nightModeSwitch.setOnCheckedChangeListener { _, isChecked -> toggleNightMode(isChecked) }
+        
+        // ========== 新增：布局模式与设备配置功能 ==========
+        
+        // 长按导航按钮 -> 打开布局模式选择器
+        navButton.setOnLongClickListener {
+            LayoutModeSelectorActivity.start(this)
+            true
+        }
+        
+        // 长按首页按钮 -> 打开设备配置界面
+        homeButton.setOnLongClickListener {
+            DeviceConfigActivity.start(this)
+            true
+        }
     }
 
     private fun openSettings() {
