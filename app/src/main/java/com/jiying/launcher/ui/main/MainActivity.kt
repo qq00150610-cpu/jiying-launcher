@@ -284,14 +284,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun toggleScreenLock() {
-        Toast.makeText(this, "屏幕锁定", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun toggleScreenRotation() {
-        Toast.makeText(this, "自动旋转", Toast.LENGTH_SHORT).show()
-    }
-
     private fun openCompass() {
         Toast.makeText(this, "指南针", Toast.LENGTH_SHORT).show()
     }
