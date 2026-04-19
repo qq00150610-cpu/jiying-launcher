@@ -77,8 +77,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var lockButton: ImageView
     private lateinit var compassButton: ImageView
     private lateinit var volumeButton: ImageView
-    private lateinit var voiceButton: ImageView
-    private lateinit var locationButton: ImageView
     
     // 控制中心
     private lateinit var controlCenterLayout: LinearLayout
@@ -176,8 +174,6 @@ class MainActivity : AppCompatActivity() {
         lockButton = findViewById(R.id.lock_button)
         compassButton = findViewById(R.id.compass_button)
         volumeButton = findViewById(R.id.volume_button)
-        voiceButton = findViewById(R.id.voice_button)
-        locationButton = findViewById(R.id.location_button)
         
         // 控制中心
         controlCenterLayout = findViewById(R.id.control_center_layout)
@@ -224,8 +220,6 @@ class MainActivity : AppCompatActivity() {
         lockButton.setOnClickListener { toggleScreenLock() }
         rotateButton.setOnClickListener { toggleScreenRotation() }
         compassButton.setOnClickListener { openCompass() }
-        voiceButton.setOnClickListener { openVoiceAssistant() }
-        locationButton.setOnClickListener { openLocationSettings() }
         
         // 添加应用按钮
         addAppBtn.setOnClickListener { showAddAppDialog() }
