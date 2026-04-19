@@ -6,13 +6,20 @@ import android.media.AudioManager
 import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.*
+import android.graphics.Color
 import android.provider.Settings
+import android.content.pm.PackageManager
+import androidx.appcompat.app.AlertDialog
+import android.view.inputmethod.InputMethodManager
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.cardview.widget.CardView
 import com.jiying.launcher.R
+import com.jiying.launcher.ui.main.AppManagerActivity
+import com.jiying.launcher.ui.main.MenuActivity
+import com.jiying.launcher.ui.main.SystemSettingsActivity
 import com.jiying.launcher.util.ThemeManager
 import java.text.SimpleDateFormat
 import java.util.*
@@ -70,6 +77,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var lockButton: ImageView
     private lateinit var compassButton: ImageView
     private lateinit var volumeButton: ImageView
+    private lateinit var voiceButton: ImageView
+    private lateinit var locationButton: ImageView
     
     // 控制中心
     private lateinit var controlCenterLayout: LinearLayout
@@ -167,6 +176,8 @@ class MainActivity : AppCompatActivity() {
         lockButton = findViewById(R.id.lock_button)
         compassButton = findViewById(R.id.compass_button)
         volumeButton = findViewById(R.id.volume_button)
+        voiceButton = findViewById(R.id.voice_button)
+        locationButton = findViewById(R.id.location_button)
         
         // 控制中心
         controlCenterLayout = findViewById(R.id.control_center_layout)
@@ -192,7 +203,9 @@ class MainActivity : AppCompatActivity() {
         
         // 底部应用栏
         myAppsBtn.setOnClickListener { showAppsCenter() }
-        systemSettingsBtn.setOnClickListener { openSettings() }
+        systemSettingsBtn.setOnClickListener { 
+            startActivity(Intent(this, SystemSettingsActivity::class.java))
+        }
         themeCenterBtn.setOnClickListener { showThemeCenter() }
         miniMusicPlayer.setOnClickListener { openMusicApp() }
         kuwoMusicBtn.setOnClickListener { openMusicApp() }
@@ -200,15 +213,22 @@ class MainActivity : AppCompatActivity() {
         appStoreBtn.setOnClickListener { openAppStore() }
         carServiceBtn.setOnClickListener { openCarService() }
         backToLauncherBtn.setOnClickListener { backToSystemLauncher() }
-        addAppBtn.setOnClickListener { showAppsCenter() }
+        addAppBtn.setOnClickListener { showAddAppDialog() }
         
         // 底部功能栏
-        homeButton.setOnClickListener { showHomePage() }
+        homeButton.setOnClickListener { 
+            startActivity(Intent(this, MenuActivity::class.java))
+        }
         navButton.setOnClickListener { openNavigationApp() }
         volumeButton.setOnClickListener { showControlCenter() }
         lockButton.setOnClickListener { toggleScreenLock() }
         rotateButton.setOnClickListener { toggleScreenRotation() }
         compassButton.setOnClickListener { openCompass() }
+        voiceButton.setOnClickListener { openVoiceAssistant() }
+        locationButton.setOnClickListener { openLocationSettings() }
+        
+        // 添加应用按钮
+        addAppBtn.setOnClickListener { showAddAppDialog() }
         
         // 控制中心
         closeControlCenter.setOnClickListener { hideControlCenter() }
@@ -225,16 +245,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openAppStore() {
-        try {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.jiying.launcher"))
-            startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(this, "无法打开应用商店", Toast.LENGTH_SHORT).show()
+        val stores = listOf(
+            "com.xiaomi.market",      // 小米商店
+            "com.tencent.android.qqdownloader", // 应用宝
+            "com.coolapk.market",     // 酷安
+            "com.baidu.appsearch"     // 百度手机助手
+        )
+        for (pkg in stores) {
+            try {
+                val intent = packageManager.getLaunchIntentForPackage(pkg)
+                if (intent != null) {
+                    startActivity(intent)
+                    return
+                }
+            } catch (e: Exception) { /* 继续尝试下一个 */ }
         }
+        // 如果都没有，打开设置
+        startActivity(Intent(Settings.ACTION_SETTINGS))
     }
 
     private fun openCarService() {
-        Toast.makeText(this, "车主服务", Toast.LENGTH_SHORT).show()
+        try {
+            val intent = Intent(Settings.ACTION_SETTINGS)
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法打开", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun backToSystemLauncher() {
@@ -256,8 +292,161 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "指南针", Toast.LENGTH_SHORT).show()
     }
 
+    // 打开语音助手
+    private fun openVoiceAssistant() {
+        val voiceApps = listOf(
+            "com.baidu.duer.dcs",           // 小度
+            "com.iflytek.aiges",           // 讯飞语音
+            "com.sogou.map.android.voice", // 搜狗语音
+            "com.alibaba.ailabs.genie",    // 天猫精灵
+            "com.xiaomi.smarthome",         // 米家语音
+            "com.google.android.googlequicksearchbox", // Google搜索
+            "com.speech reco",              // 通用语音识别
+            "android.assist.vi"             // Android语音助手
+        )
+        for (pkg in voiceApps) {
+            try {
+                val intent = packageManager.getLaunchIntentForPackage(pkg)
+                if (intent != null) {
+                    startActivity(intent)
+                    return
+                }
+            } catch (e: Exception) { /* 继续尝试 */ }
+        }
+        // 如果都没有，尝试打开Google语音搜索
+        try {
+            val intent = Intent(Intent.ACTION_ASSIST)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "未找到语音助手", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // 打开位置设置
+    private fun openLocationSettings() {
+        try {
+            val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+            startActivity(intent)
+        } catch (e: Exception) {
+            // 如果位置设置不可用，打开一般设置
+            try {
+                val intent = Intent(Settings.ACTION_SETTINGS)
+                startActivity(intent)
+            } catch (e2: Exception) {
+                Toast.makeText(this, "无法打开设置", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // 屏幕旋转控制
+    private fun toggleScreenRotation() {
+        try {
+            val rotation = window.attributes.preferredDisplayModeId
+            if (rotation == 0) {
+                // 启用自动旋转
+                Settings.System.putInt(
+                    contentResolver,
+                    Settings.System.ACCELEROMETER_ROTATION,
+                    1
+                )
+                Toast.makeText(this, "已开启自动旋转", Toast.LENGTH_SHORT).show()
+            } else {
+                // 禁用自动旋转
+                Settings.System.putInt(
+                    contentResolver,
+                    Settings.System.ACCELEROMETER_ROTATION,
+                    0
+                )
+                Toast.makeText(this, "已关闭自动旋转", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法切换旋转设置", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // 锁定屏幕
+    private fun toggleScreenLock() {
+        AlertDialog.Builder(this)
+            .setTitle("屏幕锁定")
+            .setMessage("是否锁定屏幕？锁定后将需要解锁操作。")
+            .setPositiveButton("锁定") { _, _ ->
+                // 发送广播或使用KeyguardManager锁定
+                try {
+                    val km = getSystemService(Context.KEYGUARD_SERVICE) as android.app.KeyguardManager
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        km.requestDismissKeyguard(this, object : android.app.KeyguardManager.KeyguardDismissCallback() {
+                            override fun onDismissError() {
+                                Toast.makeText(this@MainActivity, "解锁失败", Toast.LENGTH_SHORT).show()
+                            }
+                            override fun onDismissSucceeded() {
+                                // 锁定成功后可以添加全屏遮罩
+                                Toast.makeText(this@MainActivity, "屏幕已锁定", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                    } else {
+                        @Suppress("DEPRECATION")
+                        window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
+                        Toast.makeText(this, "屏幕已锁定", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "锁定功能暂不可用", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton("取消", null)
+            .show()
+    }
+
+    // 显示添加应用对话框
+    private fun showAddAppDialog() {
+        try {
+            val pm = packageManager
+            val apps = pm.getInstalledPackages(PackageManager.GET_ACTIVITIES)
+                .filter { 
+                    try {
+                        val appInfo = it.applicationInfo
+                        appInfo?.enabled == true && appInfo.loadLabel(pm).isNotBlank()
+                    } catch (e: Exception) { false }
+                }
+                .sortedBy { it.applicationInfo.loadLabel(pm).toString() }
+
+            val appNames = apps.map { it.applicationInfo.loadLabel(pm).toString() }.toTypedArray()
+
+            AlertDialog.Builder(this)
+                .setTitle("选择要添加的应用")
+                .setItems(appNames) { _, which ->
+                    val selectedApp = apps[which]
+                    addAppToHome(selectedApp.packageName, selectedApp.applicationInfo.loadLabel(pm).toString())
+                }
+                .setNegativeButton("取消", null)
+                .show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "无法获取应用列表", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // 添加应用到首页
+    private fun addAppToHome(packageName: String, appName: String) {
+        val prefs = getSharedPreferences("jiying_home_apps", MODE_PRIVATE)
+        val appList = prefs.getStringSet("apps", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
+        appList.add("$packageName|$appName")
+        prefs.edit().putStringSet("apps", appList).apply()
+        Toast.makeText(this, "已添加: $appName", Toast.LENGTH_SHORT).show()
+    }
+
     private fun showThemeCenter() {
-        Toast.makeText(this, "主题中心", Toast.LENGTH_SHORT).show()
+        AlertDialog.Builder(this)
+            .setTitle("选择主题")
+            .setItems(arrayOf("布丁UI风格", "氢桌面风格")) { dialog, which ->
+                if (which == 1) {
+                    nightModeSwitch.isChecked = true
+                    toggleNightMode(true)
+                } else {
+                    nightModeSwitch.isChecked = false
+                    toggleNightMode(false)
+                }
+            }
+            .show()
     }
 
     private fun openMusicApp() {
@@ -356,10 +545,17 @@ class MainActivity : AppCompatActivity() {
     private fun toggleNightMode(enable: Boolean) {
         if (enable) {
             ThemeManager.setTheme(ThemeManager.THEME_HYDROGEN)
+            // 直接修改背景色，不重建Activity
+            rootLayout.setBackgroundColor(Color.parseColor("#0D1117"))
+            navCard.setCardBackgroundColor(Color.parseColor("#161B22"))
+            musicCard.setCardBackgroundColor(Color.parseColor("#161B22"))
         } else {
             ThemeManager.setTheme(ThemeManager.THEME_BUDING)
+            rootLayout.setBackgroundColor(Color.parseColor("#0A0E14"))
+            navCard.setCardBackgroundColor(Color.parseColor("#1E2832"))
+            musicCard.setCardBackgroundColor(Color.parseColor("#1E2832"))
         }
-        recreate()
+        // 移除 recreate() 调用，避免闪屏
     }
 
     private fun switchTheme() {
@@ -442,7 +638,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAppsCenter() {
-        Toast.makeText(this, "应用中心", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, AppManagerActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onResume() {

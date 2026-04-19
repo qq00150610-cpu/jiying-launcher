@@ -185,6 +185,25 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.JiYingLauncher" />
 
+        <!-- 新增：系统设置页面(竖屏) -->
+        <activity
+            android:name=".ui.main.SystemSettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 新增：菜单页面(横屏) -->
+        <activity
+            android:name=".ui.main.MenuActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.JiYingLauncher" />
+
+        <!-- 新增：应用管理页面 -->
+        <activity
+            android:name=".ui.main.AppManagerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JiYingLauncher" />
+
         <!-- 壁纸服务 -->
         <service
             android:name=".service.WallpaperService"
