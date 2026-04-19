@@ -59,7 +59,7 @@
 ## 技术栈
 
 - **语言**: Kotlin
-- **最低SDK**: Android 8.0 (API 26)
+- **最低SDK**: Android 6.0 (API 23)
 - **目标SDK**: Android 14 (API 34)
 - **架构**: 单Activity + 多Fragment
 - **UI组件**: Material Design 3

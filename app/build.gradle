@@ -9,11 +9,15 @@ android {
 
     defaultConfig {
         applicationId "com.jiying.launcher"
-        minSdk 26
+        minSdk 23
         targetSdk 34
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // 多设备适配配置
+        // 支持屏幕尺寸: 7寸(1024x600)、10寸(1280x800)、12寸(1920x1200)
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
