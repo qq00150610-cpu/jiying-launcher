@@ -48,7 +48,7 @@ class LauncherNotificationListenerService : NotificationListenerService() {
             }
             
             // 发送广播通知UI更新
-            sendBroadcast(Intent(ACTION_NOTIFICATION_POSTED).apply {
+            sendBroadcast(Intent(NotificationAction.ACTION_NOTIFICATION_POSTED).apply {
                 putExtra("notification", notification)
             })
         } catch (e: Exception) {

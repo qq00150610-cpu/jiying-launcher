@@ -97,7 +97,7 @@ class MusicService : Service() {
                     }
                 }
                 setOnErrorListener { _, _, _ ->
-                    isPlaying = false
+                    this@MusicService.isPlaying = false
                     true
                 }
             }
