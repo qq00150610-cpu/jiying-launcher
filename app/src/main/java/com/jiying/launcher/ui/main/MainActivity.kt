@@ -1,9 +1,11 @@
 package com.jiying.launcher.ui.main
 
+import android.bluetooth.BluetoothAdapter
 import android.content.*
 import android.media.AudioManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.*
 import android.provider.Settings
