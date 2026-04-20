@@ -583,33 +583,10 @@ class MainActivity : AppCompatActivity() {
      * 打开应用商店
      */
     private fun openAppStore() {
-        val stores = listOf(
-            "com.xiaomi.market" to "小米商店",
-            "com.tencent.android.qqdownloader" to "应用宝",
-            "com.coolapk.market" to "酷安",
-            "com.baidu.appsearch" to "百度手机助手",
-            "com.huawei.appmarket" to "华为应用市场",
-            "com.oppo.market" to "OPPO软件商店",
-            "com.vivo.appstore" to "vivo应用商店"
-        )
-        
-        for ((pkg, name) in stores) {
-            try {
-                val intent = packageManager.getLaunchIntentForPackage(pkg)
-                if (intent != null) {
-                    startActivity(intent)
-                    return
-                }
-            } catch (e: Exception) {
-                // 继续尝试
-            }
-        }
-        
-        // 如果都没有，打开设置
         try {
-            startActivity(Intent(Settings.ACTION_SETTINGS))
+            startActivity(Intent(this, com.jiying.launcher.ui.apps.AppStoreActivity::class.java))
         } catch (e: Exception) {
-            Toast.makeText(this, "未找到应用商店", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "无法打开应用商店", Toast.LENGTH_SHORT).show()
         }
     }
     
