@@ -75,8 +75,8 @@ data class AppStoreConfig(
     val enableCache: Boolean = true      // 是否启用缓存
 ) {
     companion object {
-        // 阿里云OSS服务器地址
-        const val DEFAULT_BASE_URL = "https://jiying-appstore.oss-cn-beijing.aliyuncs.com"
+        // 腾讯云COS服务器地址
+        const val DEFAULT_BASE_URL = "https://jiying-appstore-1423945248.cos.ap-beijing.myqcloud.com"
         const val API_VERSION = "v1"
         
         // API端点
